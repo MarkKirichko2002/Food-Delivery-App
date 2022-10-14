@@ -45,7 +45,7 @@ extension FoodViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case CategoriesCollectionView:
             return categories.count
         case AppetizersCollectionView:
-            return foods.count
+            return foods.count - 2
         default: return 0
         }
     }
@@ -78,8 +78,15 @@ extension FoodViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     }, completion: nil)
                 }
             }
-        } else {
-            
+        } else if collectionView == AppetizersCollectionView {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController {
+                vc.imageURL = foods[indexPath.row].imageURL
+                vc.name = foods[indexPath.row].name
+                vc.price = foods[indexPath.row].price
+                vc.carbs = foods[indexPath.row].carbs
+                vc.calories = foods[indexPath.row].calories
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     

@@ -28,6 +28,8 @@
 		8282700428F9C856008798D5 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8282700328F9C856008798D5 /* AnimationClass.swift */; };
 		8282700628F9C86F008798D5 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8282700528F9C86F008798D5 /* SplashScreenViewController.swift */; };
 		829C8D1228F9E07100C3A004 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829C8D1128F9E07100C3A004 /* RoundedImageView.swift */; };
+		829C8D1928F9EC9900C3A004 /* FoodNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829C8D1828F9EC9900C3A004 /* FoodNavigationController.swift */; };
+		829C8D1B28F9EF5700C3A004 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829C8D1A28F9EF5700C3A004 /* FoodDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,8 @@
 		8282700328F9C856008798D5 /* AnimationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
 		8282700528F9C86F008798D5 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		829C8D1128F9E07100C3A004 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
+		829C8D1828F9EC9900C3A004 /* FoodNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNavigationController.swift; sourceTree = "<group>"; };
+		829C8D1A28F9EF5700C3A004 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		F2D7E1DC9B065D577CB2DCE5 /* Pods-Food Delivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Delivery.release.xcconfig"; path = "Target Support Files/Pods-Food Delivery/Pods-Food Delivery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -100,6 +104,7 @@
 		82826F9728F86893008798D5 /* Food Delivery */ = {
 			isa = PBXGroup;
 			children = (
+				829C8D1728F9EC8400C3A004 /* Navigation */,
 				8282700228F9C837008798D5 /* Animation */,
 				8282700128F9C835008798D5 /* Splash Screen */,
 				82826FAD28F868B0008798D5 /* API */,
@@ -173,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				82826FC228F88DD9008798D5 /* FoodViewController.swift */,
+				829C8D1A28F9EF5700C3A004 /* FoodDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -227,6 +233,14 @@
 				82826FD628F89714008798D5 /* CardView.swift */,
 			);
 			path = "Custom View";
+			sourceTree = "<group>";
+		};
+		829C8D1728F9EC8400C3A004 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				829C8D1828F9EC9900C3A004 /* FoodNavigationController.swift */,
+			);
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		D4F749A803E4B4BC22225141 /* Frameworks */ = {
@@ -355,8 +369,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				829C8D1928F9EC9900C3A004 /* FoodNavigationController.swift in Sources */,
 				82826F9D28F86893008798D5 /* ViewController.swift in Sources */,
 				82826F9928F86893008798D5 /* AppDelegate.swift in Sources */,
+				829C8D1B28F9EF5700C3A004 /* FoodDetailViewController.swift in Sources */,
 				82826FE728F8A1CD008798D5 /* CategoriesCollectionViewCell.swift in Sources */,
 				8282700628F9C86F008798D5 /* SplashScreenViewController.swift in Sources */,
 				82826FC528F88E27008798D5 /* Food.swift in Sources */,

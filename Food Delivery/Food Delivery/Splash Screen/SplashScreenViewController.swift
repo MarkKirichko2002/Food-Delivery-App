@@ -22,7 +22,7 @@ class SplashScreenController: UIViewController {
         animation.springImage(image: Image)
         SplashScreen()
     }
-   
+    
     func SplashScreen() {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -31,11 +31,10 @@ class SplashScreenController: UIViewController {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            if let controller = self.storyboard?.instantiateViewController(withIdentifier: "FoodViewController") as? FoodViewController {
-                controller.modalTransitionStyle = .crossDissolve
-                controller.modalPresentationStyle = .currentContext
-                self.present(controller, animated: false, completion: nil)
-            }
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "FoodNavigationController") else {return}
+            guard let window = self.view.window else {return}
+            window.rootViewController = vc
         }
     }
 }
+
