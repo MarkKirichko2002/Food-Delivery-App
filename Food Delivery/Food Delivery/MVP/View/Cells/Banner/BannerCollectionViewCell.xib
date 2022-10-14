@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BannerCollectionViewCell" id="0Mg-hw-Wvh" customClass="BannerCollectionViewCell" customModule="Food_Delivery" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fp2-cK-vyy" customClass="CardView" customModule="Yummie" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="FEw-Pv-IeP">
+                                <rect key="frame" x="16" y="16" width="68" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="Hik-oI-tZi"/>
+                                    <constraint firstAttribute="width" constant="68" id="Wtg-9W-2rn"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="OZc-ol-CIF">
+                                <rect key="frame" x="100" y="16" width="214" height="68"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oN3-hf-JXV">
+                                        <rect key="frame" x="0.0" y="0.0" width="214" height="68"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="FEw-Pv-IeP" secondAttribute="bottom" constant="16" id="1zL-mo-PMn"/>
+                            <constraint firstAttribute="width" constant="330" id="Mqv-YG-mqG"/>
+                            <constraint firstItem="OZc-ol-CIF" firstAttribute="bottom" secondItem="FEw-Pv-IeP" secondAttribute="bottom" id="UQX-PA-g8N"/>
+                            <constraint firstAttribute="trailing" secondItem="OZc-ol-CIF" secondAttribute="trailing" constant="16" id="c2H-kv-02t"/>
+                            <constraint firstItem="FEw-Pv-IeP" firstAttribute="top" secondItem="fp2-cK-vyy" secondAttribute="top" constant="16" id="ihv-f6-OHx"/>
+                            <constraint firstItem="OZc-ol-CIF" firstAttribute="top" secondItem="FEw-Pv-IeP" secondAttribute="top" id="iyS-FL-jad"/>
+                            <constraint firstItem="FEw-Pv-IeP" firstAttribute="leading" secondItem="fp2-cK-vyy" secondAttribute="leading" constant="16" id="kBl-tF-XX8"/>
+                            <constraint firstItem="OZc-ol-CIF" firstAttribute="leading" secondItem="FEw-Pv-IeP" secondAttribute="trailing" constant="16" id="oo2-Sv-rWe"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="GmY-ji-QQf"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="fp2-cK-vyy" secondAttribute="trailing" id="7Kf-U6-Tgx"/>
+                <constraint firstItem="fp2-cK-vyy" firstAttribute="leading" secondItem="0Mg-hw-Wvh" secondAttribute="leading" id="GkX-v1-uuc"/>
+                <constraint firstAttribute="bottom" secondItem="fp2-cK-vyy" secondAttribute="bottom" id="Odz-fa-2Pu"/>
+                <constraint firstItem="fp2-cK-vyy" firstAttribute="top" secondItem="0Mg-hw-Wvh" secondAttribute="top" id="TpK-g0-x6B"/>
+            </constraints>
+            <size key="customSize" width="330" height="94"/>
+            <connections>
+                <outlet property="FoodImage" destination="FEw-Pv-IeP" id="zfL-yG-eEq"/>
+                <outlet property="FoodText" destination="oN3-hf-JXV" id="OaN-ea-a2W"/>
+            </connections>
+            <point key="canvasLocation" x="72.463768115942031" y="112.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="hamburger" width="512" height="512"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
