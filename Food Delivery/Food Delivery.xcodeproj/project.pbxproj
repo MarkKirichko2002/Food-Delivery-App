@@ -25,6 +25,8 @@
 		82826FF128F8A2BD008798D5 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826FEF28F8A2BD008798D5 /* BannerCollectionViewCell.swift */; };
 		82826FF228F8A2BD008798D5 /* BannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82826FF028F8A2BD008798D5 /* BannerCollectionViewCell.xib */; };
 		82826FF428F8AF6F008798D5 /* FoodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826FF328F8AF6F008798D5 /* FoodPresenter.swift */; };
+		8282700428F9C856008798D5 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8282700328F9C856008798D5 /* AnimationClass.swift */; };
+		8282700628F9C86F008798D5 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8282700528F9C86F008798D5 /* SplashScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,8 @@
 		82826FEF28F8A2BD008798D5 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		82826FF028F8A2BD008798D5 /* BannerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCollectionViewCell.xib; sourceTree = "<group>"; };
 		82826FF328F8AF6F008798D5 /* FoodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPresenter.swift; sourceTree = "<group>"; };
+		8282700328F9C856008798D5 /* AnimationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
+		8282700528F9C86F008798D5 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		F2D7E1DC9B065D577CB2DCE5 /* Pods-Food Delivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Delivery.release.xcconfig"; path = "Target Support Files/Pods-Food Delivery/Pods-Food Delivery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +98,8 @@
 		82826F9728F86893008798D5 /* Food Delivery */ = {
 			isa = PBXGroup;
 			children = (
+				8282700228F9C837008798D5 /* Animation */,
+				8282700128F9C835008798D5 /* Splash Screen */,
 				82826FAD28F868B0008798D5 /* API */,
 				82826FAC28F868AC008798D5 /* MVP */,
 				82826F9828F86893008798D5 /* AppDelegate.swift */,
@@ -194,6 +200,22 @@
 				82826FF028F8A2BD008798D5 /* BannerCollectionViewCell.xib */,
 			);
 			path = Banner;
+			sourceTree = "<group>";
+		};
+		8282700128F9C835008798D5 /* Splash Screen */ = {
+			isa = PBXGroup;
+			children = (
+				8282700528F9C86F008798D5 /* SplashScreenViewController.swift */,
+			);
+			path = "Splash Screen";
+			sourceTree = "<group>";
+		};
+		8282700228F9C837008798D5 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				8282700328F9C856008798D5 /* AnimationClass.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		D4F749A803E4B4BC22225141 /* Frameworks */ = {
@@ -325,8 +347,10 @@
 				82826F9D28F86893008798D5 /* ViewController.swift in Sources */,
 				82826F9928F86893008798D5 /* AppDelegate.swift in Sources */,
 				82826FE728F8A1CD008798D5 /* CategoriesCollectionViewCell.swift in Sources */,
+				8282700628F9C86F008798D5 /* SplashScreenViewController.swift in Sources */,
 				82826FC528F88E27008798D5 /* Food.swift in Sources */,
 				82826FD528F892E7008798D5 /* NetworkService.swift in Sources */,
+				8282700428F9C856008798D5 /* AnimationClass.swift in Sources */,
 				82826FE328F8A1C1008798D5 /* AppetizersCollectionViewCell.swift in Sources */,
 				82826FC328F88DD9008798D5 /* FoodViewController.swift in Sources */,
 				82826FD728F89714008798D5 /* CardView.swift in Sources */,
