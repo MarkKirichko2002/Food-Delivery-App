@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f02-OO-byr" customClass="CardView" customModule="Food_Delivery" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="gkq-PT-e0f">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="gkq-PT-e0f" customClass="RoundedImageView" customModule="Food_Delivery" customModuleProvider="target">
                                 <rect key="frame" x="16" y="16" width="68" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="68" id="cZA-ti-CEq"/>
