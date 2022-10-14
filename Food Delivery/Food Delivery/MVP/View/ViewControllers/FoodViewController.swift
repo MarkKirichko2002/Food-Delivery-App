@@ -14,7 +14,7 @@ class FoodViewController: UIViewController, FoodPresentDelegate {
     @IBOutlet weak var AppetizersCollectionView: UICollectionView!
     @IBOutlet weak var ScrollView: UIScrollView!
     
-    var banner = [Banner(text: "скидка 20%", image: "hamburger"), Banner(text: "скидка 30%", image: "cola")]
+    var banner = [Banner(text: "скидка 20%", image: "hamburger"), Banner(text: "скидка 30%", image: "cola"), Banner(text: "cкидка 10%", image: "appetizer")]
     var categories = [FoodCategory(id: 1, name: "закуски", icon: "appetizer")]
     var presenter = FoodPresenter()
     var foods = [Request]()

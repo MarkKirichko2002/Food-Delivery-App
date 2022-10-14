@@ -17,10 +17,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fp2-cK-vyy" customClass="CardView" customModule="Yummie" customModuleProvider="target">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fp2-cK-vyy" customClass="CardView" customModule="Food_Delivery" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="FEw-Pv-IeP">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="FEw-Pv-IeP" customClass="RoundedImageView" customModule="Food_Delivery" customModuleProvider="target">
                                 <rect key="frame" x="16" y="16" width="68" height="68"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="68" id="Hik-oI-tZi"/>
