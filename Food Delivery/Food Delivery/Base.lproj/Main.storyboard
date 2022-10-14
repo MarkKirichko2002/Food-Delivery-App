@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ooi-zs-41J">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VwO-fG-aXQ">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -10,13 +10,13 @@
         <!--Доставка Еды-->
         <scene sceneID="mRF-gQ-09Y">
             <objects>
-                <viewController id="Pjz-FN-4Zl" customClass="FoodViewController" customModule="Food_Delivery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoodViewController" id="Pjz-FN-4Zl" customClass="FoodViewController" customModule="Food_Delivery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D2B-0d-mLO">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kot-wQ-sMa">
-                                <rect key="frame" x="0.0" y="103" width="430" height="829"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kot-wQ-sMa">
+                                <rect key="frame" x="0.0" y="59" width="430" height="873"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yra-C1-ecL">
                                         <rect key="frame" x="0.0" y="0.0" width="430" height="726"/>
@@ -179,25 +179,50 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOa-4a-UJs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3482" y="0.0"/>
+            <point key="canvasLocation" x="2648" y="0.0"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="jDi-qX-awB">
+        <!--Splash Screen Controller-->
+        <scene sceneID="49F-kS-UaE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ooi-zs-41J" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nvu-hH-SiR">
-                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
+                <viewController storyboardIdentifier="SplashScreenController" id="VwO-fG-aXQ" customClass="SplashScreenController" customModule="Food_Delivery" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="U8x-a8-Egy">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="YeT-AI-onY">
+                                <rect key="frame" x="115" y="266" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="4nM-T7-t1U"/>
+                                    <constraint firstAttribute="width" constant="200" id="dXg-f7-NBl"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xCO-Lt-QH0">
+                                <rect key="frame" x="220" y="521" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="35"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oCO-07-aAv"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xCO-Lt-QH0" firstAttribute="centerY" secondItem="U8x-a8-Egy" secondAttribute="centerY" constant="55" id="33i-Tn-6me"/>
+                            <constraint firstItem="YeT-AI-onY" firstAttribute="centerX" secondItem="U8x-a8-Egy" secondAttribute="centerX" id="RsU-XG-FSw"/>
+                            <constraint firstItem="YeT-AI-onY" firstAttribute="centerY" secondItem="U8x-a8-Egy" secondAttribute="centerY" constant="-100" id="gio-Ld-f2h"/>
+                            <constraint firstItem="xCO-Lt-QH0" firstAttribute="centerX" secondItem="U8x-a8-Egy" secondAttribute="centerX" constant="5" id="mKX-Gm-xp2"/>
+                        </constraints>
+                    </view>
                     <connections>
-                        <segue destination="Pjz-FN-4Zl" kind="relationship" relationship="rootViewController" id="Au7-iS-0AV"/>
+                        <outlet property="Image" destination="YeT-AI-onY" id="4im-1P-sKE"/>
+                        <outlet property="Text" destination="xCO-Lt-QH0" id="6sl-zT-90F"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HtY-Z0-9Cr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yzZ-fc-XOq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2503" y="0.0"/>
+            <point key="canvasLocation" x="1373" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="hamburger" width="512" height="512"/>
+    </resources>
 </document>
