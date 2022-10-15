@@ -13,6 +13,7 @@ protocol FoodPresentDelegate {
     func presentAppetizers(food: [Request])
     func presentHamburgers(hamburgers: [Request])
     func presentCola(cola: [Request])
+    func presentPizzas(pizzas: [Request])
 }
 
 typealias Presenter = FoodPresentDelegate & UIViewController
@@ -22,6 +23,7 @@ class FoodPresenter {
     var foods = [Request]()
     var hamburgers = [Request]()
     var cola = [Request]()
+    var pizzas = [Request]()
     var networkService = NetworkService()
     var delegate: Presenter?
     var text = ""
@@ -45,7 +47,7 @@ class FoodPresenter {
     
     func GetHamburgers() {
         DispatchQueue.main.async {
-            self.hamburgers = [Request(name: "фишбургер", calories: 278, id: 1, carbs: 8, requestDescription: "Фиш Бургер - это филе хорошо прожаренной рыбы (семейства тресковых), которое подается на пропаренной булочке с половинкой кусочка сыра Чеддер, заправленной специальным соусом Тар-Тар.", price: 10.0, protein: 10, imageURL: "https://www.gastronom.ru/binfiles/images/20170531/b5e02efe.jpg"), Request(name: "чизбургер", calories: 303, id: 2, carbs: 30, requestDescription: "Чи́збургер (англ. cheeseburger, от cheese — сыр) — это гамбургер с сыром. Традиционно ломтик сыра кладется поверх мясной котлеты. Сыр обычно добавляют в готовящийся гамбургер незадолго до подачи на стол, что позволяет сыру расплавиться.", price: 10.0, protein: 15, imageURL: "https://www.maggi.ru/data/images/recept/img640x500/recept_3682_avoa.jpg"), Request(name: "блэк бургер", calories: 10, id: 10, carbs: 30, requestDescription: "", price: 10.0, protein: 40, imageURL: "https://irecommend.ru/sites/default/files/product-images/684763/fMRdsudml6qhVdOOcVxpnQ.jpg")]
+            self.hamburgers = [Request(name: "фишбургер", calories: 278, id: 1, carbs: 8, requestDescription: "Фиш Бургер - это филе хорошо прожаренной рыбы (семейства тресковых), которое подается на пропаренной булочке с половинкой кусочка сыра Чеддер, заправленной специальным соусом Тар-Тар.", price: 10.0, protein: 10, imageURL: "https://www.gastronom.ru/binfiles/images/20170531/b5e02efe.jpg"), Request(name: "чизбургер", calories: 303, id: 2, carbs: 30, requestDescription: "Чи́збургер (англ. cheeseburger, от cheese — сыр) — это гамбургер с сыром. Традиционно ломтик сыра кладется поверх мясной котлеты. Сыр обычно добавляют в готовящийся гамбургер незадолго до подачи на стол, что позволяет сыру расплавиться.", price: 10.0, protein: 15, imageURL: "https://www.maggi.ru/data/images/recept/img640x500/recept_3682_avoa.jpg"), Request(name: "блэк бургер", calories: 250, id: 10, carbs: 30, requestDescription: "", price: 10.0, protein: 40, imageURL: "https://irecommend.ru/sites/default/files/product-images/684763/fMRdsudml6qhVdOOcVxpnQ.jpg")]
             self.delegate?.presentHamburgers(hamburgers: self.hamburgers)
         }
     }
@@ -56,6 +58,14 @@ class FoodPresenter {
             self.delegate?.presentCola(cola: self.cola)
         }
     }
+    
+    func GetPizzas() {
+        DispatchQueue.main.async {
+            self.pizzas = [Request(name: "Пеперони", calories: 494, id: 1, carbs: 0, requestDescription: "Пеперо́ни — острая разновидность салями итало-американского происхождения, а также название пиццы американского происхождения", price: 15.0, protein: 48, imageURL: "https://static.pizzasushiwok.ru/images/menu_new/6-1300.jpg"), Request(name: "Грибная", calories: 400, id: 2, carbs: 10, requestDescription: "", price: 10.0, protein: 35, imageURL: "https://bakerbynature.com/wp-content/uploads/2015/10/IMG_8442-31-500x375.jpg"), Request(name: "С морепродуктами", calories: 450, id: 3, carbs: 15, requestDescription: "", price: 12.0, protein: 30, imageURL: "https://lh5.googleusercontent.com/dW9MQSObavamZ_T9m1OdsyaEO4PHDZfB1kvR_jFL0U2kwyRwnxl_2aUYkUEV_qD3rRpPuLYgDsR-lzdQ_KNUl3vviLHjAUkaXrOThU2Ce4e0MDu1dGG9OzJZYaYvQWO94LC1qAzm")]
+            self.delegate?.presentPizzas(pizzas: self.pizzas)
+        }
+    }
+    
     
     func startSpeechRecognization(){
         
@@ -135,7 +145,7 @@ class FoodPresenter {
                     }
                 }
                 
-            case _ where lastString.contains("Бургеры") || lastString.contains("бургеры"):
+            case _ where lastString.contains("Бургер") || lastString.contains("бургер"):
                 if self.scrollView?.contentOffset.y == 0.0 {
                     DispatchQueue.main.async {
                         UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
@@ -144,11 +154,20 @@ class FoodPresenter {
                     }
                 }
                 
-            case _ where lastString.contains("Кола") || lastString.contains("кола"):
+            case _ where lastString.contains("Кол") || lastString.contains("кол"):
                 if self.scrollView?.contentOffset.y == 0.0 {
                     DispatchQueue.main.async {
                         UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
                             self.scrollView?.contentOffset.y = (self.scrollView?.contentOffset.y ?? 0) + 750
+                        }, completion: nil)
+                    }
+                }
+                
+            case _ where lastString.contains("Пицц") || lastString.contains("пицц"):
+                if self.scrollView?.contentOffset.y == 0.0 {
+                    DispatchQueue.main.async {
+                        UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
+                            self.scrollView?.contentOffset.y = (self.scrollView?.contentOffset.y ?? 0) + 950
                         }, completion: nil)
                     }
                 }
@@ -163,7 +182,6 @@ class FoodPresenter {
                 self.text = ""
                 
             }
-            
         })
     }
     
