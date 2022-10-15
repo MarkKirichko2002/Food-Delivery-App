@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4E845F009A6846DFE539B9A0 /* Pods_Food_Delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3235B04EC8A64BF4212C1AF1 /* Pods_Food_Delivery.framework */; };
-		8251904028FAEF5400D7D7D5 /* HamburgersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8251903E28FAEF5400D7D7D5 /* HamburgersCollectionViewCell.swift */; };
-		8251904128FAEF5400D7D7D5 /* HamburgersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8251903F28FAEF5400D7D7D5 /* HamburgersCollectionViewCell.xib */; };
 		82826F9928F86893008798D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826F9828F86893008798D5 /* AppDelegate.swift */; };
 		82826F9B28F86893008798D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826F9A28F86893008798D5 /* SceneDelegate.swift */; };
 		82826F9D28F86893008798D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826F9C28F86893008798D5 /* ViewController.swift */; };
@@ -20,8 +18,8 @@
 		82826FC528F88E27008798D5 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826FC428F88E27008798D5 /* Food.swift */; };
 		82826FD528F892E7008798D5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826FD428F892E7008798D5 /* NetworkService.swift */; };
 		82826FD728F89714008798D5 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826FD628F89714008798D5 /* CardView.swift */; };
-		82826FE328F8A1C1008798D5 /* AppetizersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826FE128F8A1C1008798D5 /* AppetizersCollectionViewCell.swift */; };
-		82826FE428F8A1C1008798D5 /* AppetizersCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82826FE228F8A1C1008798D5 /* AppetizersCollectionViewCell.xib */; };
+		82826FE328F8A1C1008798D5 /* FoodCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826FE128F8A1C1008798D5 /* FoodCollectionViewCell.swift */; };
+		82826FE428F8A1C1008798D5 /* FoodCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82826FE228F8A1C1008798D5 /* FoodCollectionViewCell.xib */; };
 		82826FE728F8A1CD008798D5 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826FE528F8A1CD008798D5 /* CategoriesCollectionViewCell.swift */; };
 		82826FE828F8A1CD008798D5 /* CategoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82826FE628F8A1CD008798D5 /* CategoriesCollectionViewCell.xib */; };
 		82826FF128F8A2BD008798D5 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826FEF28F8A2BD008798D5 /* BannerCollectionViewCell.swift */; };
@@ -37,8 +35,6 @@
 /* Begin PBXFileReference section */
 		3235B04EC8A64BF4212C1AF1 /* Pods_Food_Delivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Food_Delivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BF7DE7C090D52726354FE7F /* Pods-Food Delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Delivery.debug.xcconfig"; path = "Target Support Files/Pods-Food Delivery/Pods-Food Delivery.debug.xcconfig"; sourceTree = "<group>"; };
-		8251903E28FAEF5400D7D7D5 /* HamburgersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HamburgersCollectionViewCell.swift; sourceTree = "<group>"; };
-		8251903F28FAEF5400D7D7D5 /* HamburgersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HamburgersCollectionViewCell.xib; sourceTree = "<group>"; };
 		82826F9528F86893008798D5 /* Food Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Delivery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82826F9828F86893008798D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82826F9A28F86893008798D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,8 +47,8 @@
 		82826FC428F88E27008798D5 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		82826FD428F892E7008798D5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		82826FD628F89714008798D5 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		82826FE128F8A1C1008798D5 /* AppetizersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppetizersCollectionViewCell.swift; sourceTree = "<group>"; };
-		82826FE228F8A1C1008798D5 /* AppetizersCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AppetizersCollectionViewCell.xib; sourceTree = "<group>"; };
+		82826FE128F8A1C1008798D5 /* FoodCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodCollectionViewCell.swift; sourceTree = "<group>"; };
+		82826FE228F8A1C1008798D5 /* FoodCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodCollectionViewCell.xib; sourceTree = "<group>"; };
 		82826FE528F8A1CD008798D5 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
 		82826FE628F8A1CD008798D5 /* CategoriesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoriesCollectionViewCell.xib; sourceTree = "<group>"; };
 		82826FEF28F8A2BD008798D5 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -85,15 +81,6 @@
 				F2D7E1DC9B065D577CB2DCE5 /* Pods-Food Delivery.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		8251903D28FAEF2300D7D7D5 /* Hamburgers */ = {
-			isa = PBXGroup;
-			children = (
-				8251903E28FAEF5400D7D7D5 /* HamburgersCollectionViewCell.swift */,
-				8251903F28FAEF5400D7D7D5 /* HamburgersCollectionViewCell.xib */,
-			);
-			path = Hamburgers;
 			sourceTree = "<group>";
 		};
 		82826F8C28F86893008798D5 = {
@@ -180,10 +167,9 @@
 		82826FC628F88F82008798D5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				8251903D28FAEF2300D7D7D5 /* Hamburgers */,
-				82826FE028F8A1A1008798D5 /* Banner */,
-				82826FDF28F8A19D008798D5 /* Appetizers */,
 				82826FDE28F8A19B008798D5 /* Categories */,
+				82826FE028F8A1A1008798D5 /* Banner */,
+				82826FDF28F8A19D008798D5 /* Food */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -206,13 +192,13 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		82826FDF28F8A19D008798D5 /* Appetizers */ = {
+		82826FDF28F8A19D008798D5 /* Food */ = {
 			isa = PBXGroup;
 			children = (
-				82826FE128F8A1C1008798D5 /* AppetizersCollectionViewCell.swift */,
-				82826FE228F8A1C1008798D5 /* AppetizersCollectionViewCell.xib */,
+				82826FE128F8A1C1008798D5 /* FoodCollectionViewCell.swift */,
+				82826FE228F8A1C1008798D5 /* FoodCollectionViewCell.xib */,
 			);
-			path = Appetizers;
+			path = Food;
 			sourceTree = "<group>";
 		};
 		82826FE028F8A1A1008798D5 /* Banner */ = {
@@ -325,8 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8251904128FAEF5400D7D7D5 /* HamburgersCollectionViewCell.xib in Resources */,
-				82826FE428F8A1C1008798D5 /* AppetizersCollectionViewCell.xib in Resources */,
+				82826FE428F8A1C1008798D5 /* FoodCollectionViewCell.xib in Resources */,
 				82826FA528F86896008798D5 /* LaunchScreen.storyboard in Resources */,
 				82826FE828F8A1CD008798D5 /* CategoriesCollectionViewCell.xib in Resources */,
 				82826FA228F86896008798D5 /* Assets.xcassets in Resources */,
@@ -390,12 +375,11 @@
 				829C8D1B28F9EF5700C3A004 /* FoodDetailViewController.swift in Sources */,
 				82826FE728F8A1CD008798D5 /* CategoriesCollectionViewCell.swift in Sources */,
 				8282700628F9C86F008798D5 /* SplashScreenViewController.swift in Sources */,
-				8251904028FAEF5400D7D7D5 /* HamburgersCollectionViewCell.swift in Sources */,
 				82826FC528F88E27008798D5 /* Food.swift in Sources */,
 				82826FD528F892E7008798D5 /* NetworkService.swift in Sources */,
 				829C8D1228F9E07100C3A004 /* RoundedImageView.swift in Sources */,
 				8282700428F9C856008798D5 /* AnimationClass.swift in Sources */,
-				82826FE328F8A1C1008798D5 /* AppetizersCollectionViewCell.swift in Sources */,
+				82826FE328F8A1C1008798D5 /* FoodCollectionViewCell.swift in Sources */,
 				82826FC328F88DD9008798D5 /* FoodViewController.swift in Sources */,
 				82826FD728F89714008798D5 /* CardView.swift in Sources */,
 				82826FF128F8A2BD008798D5 /* BannerCollectionViewCell.swift in Sources */,
