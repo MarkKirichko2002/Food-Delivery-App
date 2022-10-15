@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AppetizersCollectionViewCell" id="lBD-ZN-Cfu" customClass="AppetizersCollectionViewCell" customModule="Food_Delivery" customModuleProvider="target">
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FoodCollectionViewCell" id="lBD-ZN-Cfu" customClass="FoodCollectionViewCell" customModule="Food_Delivery" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -67,14 +67,14 @@
             </constraints>
             <size key="customSize" width="330" height="94"/>
             <connections>
-                <outlet property="AppetizerImage" destination="48o-Yb-cX8" id="Dz0-OD-sgS"/>
-                <outlet property="AppetizerName" destination="vAf-wg-D86" id="cke-fG-oRQ"/>
+                <outlet property="FoodImage" destination="48o-Yb-cX8" id="erN-PT-d9a"/>
+                <outlet property="FoodName" destination="vAf-wg-D86" id="LS4-vL-MyU"/>
             </connections>
             <point key="canvasLocation" x="72.463768115942031" y="112.5"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="hamburger" width="512" height="512"/>
+        <image name="hamburger" width="612" height="409"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

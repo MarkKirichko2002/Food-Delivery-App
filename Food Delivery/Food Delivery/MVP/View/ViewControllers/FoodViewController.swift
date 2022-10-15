@@ -13,15 +13,16 @@ class FoodViewController: UIViewController, FoodPresentDelegate {
     @IBOutlet weak var CategoriesCollectionView: UICollectionView!
     @IBOutlet weak var AppetizersCollectionView: UICollectionView!
     @IBOutlet weak var HamburgersCollectionView: UICollectionView!
+    @IBOutlet weak var ColaCollectionView: UICollectionView!
     @IBOutlet weak var MicrophoneButton: UIButton!
     @IBOutlet weak var ScrollView: UIScrollView!
     
     var banner = [Banner(text: "скидка 20%", image: "hamburger"), Banner(text: "скидка 30%", image: "cola"), Banner(text: "cкидка 10%", image: "appetizer")]
-    var categories = [FoodCategory(id: 1, name: "закуски", icon: "appetizer"), FoodCategory(id: 2, name: "бургеры", icon: "hamburger")]
+    var categories = [FoodCategory(id: 1, name: "закуски", icon: "appetizer"), FoodCategory(id: 2, name: "бургеры", icon: "hamburger"), FoodCategory(id: 3, name: "кола", icon: "cola")]
     var presenter = FoodPresenter()
     var foods = [Request]()
     var hamburgers = [Request]()
-    
+    var cola = [Request]()
     
     @IBAction func SpeechRecognition() {
         presenter.isStart = !presenter.isStart
@@ -34,23 +35,29 @@ class FoodViewController: UIViewController, FoodPresentDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let layout = BannerCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        layout?.sectionHeadersPinToVisibleBounds = true
         presenter.SetFoodDelegate(delegate: self)
         presenter.SetScroll(scrollView: self.ScrollView)
         presenter.SetButton(button: self.MicrophoneButton)
         presenter.GetFood()
         presenter.GetHamburgers()
+        presenter.GetCola()
         registerCells()
         AppetizersCollectionView.delegate = self
         AppetizersCollectionView.dataSource = self
         HamburgersCollectionView.delegate = self
         HamburgersCollectionView.dataSource = self
+        ColaCollectionView.delegate = self
+        ColaCollectionView.dataSource = self
     }
     
     private func registerCells() {
         BannerCollectionView.register(UINib(nibName: BannerCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: BannerCollectionViewCell.identifier)
         CategoriesCollectionView.register(UINib(nibName: CategoriesCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: CategoriesCollectionViewCell.identifier)
-        AppetizersCollectionView.register(UINib(nibName: AppetizersCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: AppetizersCollectionViewCell.identifier)
-        HamburgersCollectionView.register(UINib(nibName: HamburgersCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: HamburgersCollectionViewCell.identifier)
+        AppetizersCollectionView.register(UINib(nibName: FoodCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: FoodCollectionViewCell.identifier)
+        HamburgersCollectionView.register(UINib(nibName: FoodCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: FoodCollectionViewCell.identifier)
+        ColaCollectionView.register(UINib(nibName: FoodCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: FoodCollectionViewCell.identifier)
     }
     
 }
@@ -66,6 +73,8 @@ extension FoodViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return foods.count - 2
         case HamburgersCollectionView:
             return hamburgers.count
+        case ColaCollectionView:
+            return cola.count
         default: return 0
         }
     }
@@ -82,12 +91,16 @@ extension FoodViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.configure(categories: categories[indexPath.row])
             return cell
         case AppetizersCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppetizersCollectionViewCell.identifier, for: indexPath) as! AppetizersCollectionViewCell
-            cell.configure(appetizers: foods[indexPath.row])
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodCollectionViewCell.identifier, for: indexPath) as! FoodCollectionViewCell
+            cell.configure(food: foods[indexPath.row])
             return cell
         case HamburgersCollectionView:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HamburgersCollectionViewCell.identifier, for: indexPath) as! HamburgersCollectionViewCell
-            cell.configure(hamburgers: hamburgers[indexPath.row])
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodCollectionViewCell.identifier, for: indexPath) as! FoodCollectionViewCell
+            cell.configure(food: hamburgers[indexPath.row])
+            return cell
+        case ColaCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FoodCollectionViewCell.identifier, for: indexPath) as! FoodCollectionViewCell
+            cell.configure(food: cola[indexPath.row])
             return cell
         default: return UICollectionViewCell()
         }
@@ -107,11 +120,18 @@ extension FoodViewController: UICollectionViewDelegate, UICollectionViewDataSour
                         self.ScrollView.contentOffset.y = self.ScrollView.contentOffset.y + 380
                     }, completion: nil)
                 }
-            
+                
             case 2:
                 DispatchQueue.main.async {
                     UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
                         self.ScrollView.contentOffset.y = self.ScrollView.contentOffset.y + 550
+                    }, completion: nil)
+                }
+                
+            case 3:
+                DispatchQueue.main.async {
+                    UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
+                        self.ScrollView.contentOffset.y = self.ScrollView.contentOffset.y + 750
                     }, completion: nil)
                 }
                 
@@ -139,19 +159,25 @@ extension FoodViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             
+        case ColaCollectionView:
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController {
+                vc.imageURL = cola[indexPath.row].imageURL
+                vc.name = cola[indexPath.row].name
+                vc.price = cola[indexPath.row].price
+                vc.carbs = cola[indexPath.row].carbs
+                vc.calories = cola[indexPath.row].calories
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
             
         default:
             break
-            
         }
     }
     
-    func presentFood(food: [Request]) {
+    func presentAppetizers(food: [Request]) {
         DispatchQueue.main.async {
             self.foods = food
             self.AppetizersCollectionView.reloadData()
-            self.HamburgersCollectionView.reloadData()
-            print(food)
         }
     }
     
@@ -159,7 +185,13 @@ extension FoodViewController: UICollectionViewDelegate, UICollectionViewDataSour
         DispatchQueue.main.async {
             self.hamburgers = hamburgers
             self.HamburgersCollectionView.reloadData()
-            print(hamburgers)
+        }
+    }
+    
+    func presentCola(cola: [Request]) {
+        DispatchQueue.main.async {
+            self.cola = cola
+            self.ColaCollectionView.reloadData()
         }
     }
 }
