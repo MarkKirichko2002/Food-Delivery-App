@@ -208,12 +208,26 @@
                     </view>
                     <navigationItem key="navigationItem" title="Доставка Еды" id="ghK-b2-t2A">
                         <barButtonItem key="backBarButtonItem" title=" " id="9V9-H5-yl2"/>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="qLS-sj-TOH">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="U7O-Wa-tRP">
+                                <rect key="frame" x="178" y="17" width="46" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="mic" catalog="system">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="SpeechRecognition" destination="Pjz-FN-4Zl" eventType="touchUpInside" id="BZO-pt-ktU"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="AppetizersCollectionView" destination="jdT-bP-lBE" id="JP2-xL-7vt"/>
                         <outlet property="BannerCollectionView" destination="mLg-CW-YW6" id="6lh-zV-tHd"/>
                         <outlet property="CategoriesCollectionView" destination="ics-kV-IGM" id="6X7-9P-S5v"/>
                         <outlet property="HamburgersCollectionView" destination="FKo-Eb-hRH" id="2Fp-ze-A7v"/>
+                        <outlet property="MicrophoneButton" destination="U7O-Wa-tRP" id="CmL-Dh-INN"/>
                         <outlet property="ScrollView" destination="kot-wQ-sMa" id="PUQ-gR-Gnx"/>
                     </connections>
                 </viewController>
@@ -318,6 +332,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsd-bq-Osz">
+                                <rect key="frame" x="20" y="617" width="75" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EDL-fi-MBN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -353,6 +373,7 @@
     </scenes>
     <resources>
         <image name="hamburger" width="612" height="409"/>
+        <image name="mic" catalog="system" width="110" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
