@@ -13,6 +13,7 @@ class FoodViewController: UIViewController, FoodPresentDelegate {
     @IBOutlet weak var CategoriesCollectionView: UICollectionView!
     @IBOutlet weak var AppetizersCollectionView: UICollectionView!
     @IBOutlet weak var HamburgersCollectionView: UICollectionView!
+    @IBOutlet weak var MicrophoneButton: UIButton!
     @IBOutlet weak var ScrollView: UIScrollView!
     
     var banner = [Banner(text: "скидка 20%", image: "hamburger"), Banner(text: "скидка 30%", image: "cola"), Banner(text: "cкидка 10%", image: "appetizer")]
@@ -21,9 +22,21 @@ class FoodViewController: UIViewController, FoodPresentDelegate {
     var foods = [Request]()
     var hamburgers = [Request]()
     
+    
+    @IBAction func SpeechRecognition() {
+        presenter.isStart = !presenter.isStart
+        if presenter.isStart {
+            presenter.startSpeechRecognization()
+        } else {
+            presenter.cancelSpeechRecognization()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.SetFoodDelegate(delegate: self)
+        presenter.SetScroll(scrollView: self.ScrollView)
+        presenter.SetButton(button: self.MicrophoneButton)
         presenter.GetFood()
         presenter.GetHamburgers()
         registerCells()
