@@ -13,6 +13,12 @@ struct FoodCategory {
     let icon: String
 }
 
+struct FoodPage {
+    var id: Int
+    var name: String
+    var list: [Request]
+}
+
 struct Banner {
     let text: String
     let image: String
