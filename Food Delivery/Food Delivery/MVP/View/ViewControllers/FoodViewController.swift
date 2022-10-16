@@ -37,10 +37,8 @@ class FoodViewController: UIViewController, FoodPresentDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let layout = BannerCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
-        layout?.sectionHeadersPinToVisibleBounds = true
         presenter.SetFoodDelegate(delegate: self)
-        presenter.SetScroll(scrollView: self.ScrollView)
+        //presenter.SetScroll(scrollView: self.ScrollView)
         presenter.SetButton(button: self.MicrophoneButton)
         presenter.GetFood()
         presenter.GetHamburgers()

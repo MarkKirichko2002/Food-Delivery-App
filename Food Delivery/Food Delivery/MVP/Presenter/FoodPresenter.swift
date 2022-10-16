@@ -27,7 +27,7 @@ class FoodPresenter {
     var networkService = NetworkService()
     var delegate: Presenter?
     var text = ""
-    var scrollView: UIScrollView?
+    var tableView: UITableView?
     var button: UIButton?
     var isStart: Bool = false
     
@@ -40,6 +40,7 @@ class FoodPresenter {
         networkService.GetFood { food in
             DispatchQueue.main.async {
                 self.foods = food
+                print(self.foods)
                 self.delegate?.presentAppetizers(food: self.foods)
             }
         }
@@ -117,67 +118,34 @@ class FoodPresenter {
             }
             
             switch lastString {
+              
+            case _ where lastString.contains("Предложени") || lastString.contains("предложени"):
+                self.scrollTable(section: 0)
                 
             case _ where lastString.contains("Вверх") || lastString.contains("вверх"):
-                DispatchQueue.main.async {
-                    UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
-                        self.button?.setImage(UIImage(systemName: "arrow.up"), for: .normal)
-                        self.scrollView?.contentOffset.y = 0.0
-                    }, completion: nil)
-                }
+                self.scrollTable(section: 0)
                 
             case _ where lastString.contains("Вниз") || lastString.contains("вниз"):
-                if self.scrollView?.contentOffset.y == 0.0 {
-                    DispatchQueue.main.async {
-                        UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
-                            self.button?.setImage(UIImage(systemName: "arrow.down"), for: .normal)
-                            self.scrollView?.contentOffset.y = (self.scrollView?.contentOffset.y ?? 0) + 550
-                        }, completion: nil)
-                    }
-                }
+                self.scrollTable(section: 5)
+                
+            case _ where lastString.contains("Категори") || lastString.contains("категори"):
+                self.scrollTable(section: 1)
                 
             case _ where lastString.contains("Закуски") || lastString.contains("закуски"):
-                if self.scrollView?.contentOffset.y == 0.0 {
-                    DispatchQueue.main.async {
-                        UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
-                            self.scrollView?.contentOffset.y = (self.scrollView?.contentOffset.y ?? 0) + 380
-                        }, completion: nil)
-                    }
-                }
+                self.scrollTable(section: 5)
                 
             case _ where lastString.contains("Бургер") || lastString.contains("бургер"):
-                if self.scrollView?.contentOffset.y == 0.0 {
-                    DispatchQueue.main.async {
-                        UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
-                            self.scrollView?.contentOffset.y = (self.scrollView?.contentOffset.y ?? 0) + 550
-                        }, completion: nil)
-                    }
-                }
+                self.scrollTable(section: 2)
                 
             case _ where lastString.contains("Кол") || lastString.contains("кол"):
-                if self.scrollView?.contentOffset.y == 0.0 {
-                    DispatchQueue.main.async {
-                        UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
-                            self.scrollView?.contentOffset.y = (self.scrollView?.contentOffset.y ?? 0) + 750
-                        }, completion: nil)
-                    }
-                }
+                self.scrollTable(section: 3)
                 
             case _ where lastString.contains("Пицц") || lastString.contains("пицц"):
-                if self.scrollView?.contentOffset.y == 0.0 {
-                    DispatchQueue.main.async {
-                        UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
-                            self.scrollView?.contentOffset.y = (self.scrollView?.contentOffset.y ?? 0) + 950
-                        }, completion: nil)
-                    }
-                }
+                self.scrollTable(section: 4)
                 
             case _ where lastString.contains("Стоп") || lastString.contains("стоп"):
-                DispatchQueue.main.async {
-                    UIView.animate(withDuration: 1, delay: 0, options: UIView.AnimationOptions.curveLinear, animations: {
-                        self.button?.sendActions(for: .touchUpInside)
-                    }, completion: nil)
-                }
+                self.button?.sendActions(for: .touchUpInside)
+                
             default:
                 self.text = ""
                 
@@ -193,12 +161,23 @@ class FoodPresenter {
         audioEngine.inputNode.removeTap(onBus: 0)
     }
     
+    func scrollTable(section: Int) {
+        // 1
+        let topRow = IndexPath(row: 0,
+                               section: section)
+        
+        // 2
+        self.tableView?.scrollToRow(at: topRow,
+                                   at: .top,
+                                   animated: true)
+    }
+    
     func SetFoodDelegate(delegate: FoodPresentDelegate & UIViewController) {
         self.delegate = delegate
     }
     
-    func SetScroll(scrollView: UIScrollView) {
-        self.scrollView = scrollView
+    func SetTable(tableView: UITableView) {
+        self.tableView = tableView
     }
     
     func SetButton(button: UIButton) {
