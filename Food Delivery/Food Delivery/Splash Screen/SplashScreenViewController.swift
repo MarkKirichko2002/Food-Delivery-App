@@ -31,7 +31,7 @@ class SplashScreenController: UIViewController {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
-            guard let vc = self.storyboard?.instantiateViewController(identifier: "FoodNavigationController") else {return}
+            guard let vc = self.storyboard?.instantiateViewController(identifier: "MenuController") else {return}
             guard let window = self.view.window else {return}
             window.rootViewController = vc
         }
