@@ -1,12 +1,15 @@
 //
-//  FoodTableViewCell.swift
+//  TabTableViewCell.swift
 //  Food Delivery
 //
-//  Created by Марк Киричко on 16.10.2022.
+//  Created by Марк Киричко on 17.10.2022.
 //
 
 import UIKit
-import SDWebImage
+
+let TabTableViewCellID = "FoodTableViewCell"
+
+import UIKit
 
 class FoodTableViewCell: UITableViewCell {
 
