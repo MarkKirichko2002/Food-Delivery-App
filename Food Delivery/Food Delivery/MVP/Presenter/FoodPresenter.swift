@@ -54,14 +54,14 @@ class FoodPresenter {
     
     func GetCola() {
         DispatchQueue.main.async {
-            self.cola = [Request(name: "Coca-Cola 0,5 л", calories: 212, id: 1, carbs: 53, requestDescription: "", price: 5.0, protein: 10, imageURL: "https://www.vastivr.ru/uploads/shop_prod/300x0/ac7a493144edc0758c9abce332551115.jpg"), Request(name: "Pepsi Cola 0,33л", calories: 230, id: 2, carbs: 11, requestDescription: "", price: 4.0, protein: 15, imageURL: "https://shop.miratorg.ru/upload/iblock/1af/RN015961.jpg"), Request(name: "Sprite 0.25л", calories: 250, id: 3, carbs: 12, requestDescription: "", price: 3.0, protein: 13, imageURL: "https://aqua-life.spb.ru/foto/110595525062020.jpg")]
+            self.cola = [Request(name: "Coca-Cola 0,5 л", calories: 212, id: 1, carbs: 53, requestDescription: "", price: 74, protein: 10, imageURL: "https://www.vastivr.ru/uploads/shop_prod/300x0/ac7a493144edc0758c9abce332551115.jpg"), Request(name: "Pepsi Cola 0,33л", calories: 230, id: 2, carbs: 11, requestDescription: "", price: 71.9, protein: 15, imageURL: "https://shop.miratorg.ru/upload/iblock/1af/RN015961.jpg"), Request(name: "Sprite 0.25л", calories: 250, id: 3, carbs: 12, requestDescription: "", price: 75.2, protein: 13, imageURL: "https://aqua-life.spb.ru/foto/110595525062020.jpg")]
             self.delegate?.presentCola(cola: self.cola)
         }
     }
     
     func GetPizzas() {
         DispatchQueue.main.async {
-            self.pizzas = [Request(name: "Пеперони", calories: 494, id: 1, carbs: 0, requestDescription: "Пеперо́ни — острая разновидность салями итало-американского происхождения, а также название пиццы американского происхождения", price: 15.0, protein: 48, imageURL: "https://static.pizzasushiwok.ru/images/menu_new/6-1300.jpg"), Request(name: "Грибная", calories: 400, id: 2, carbs: 10, requestDescription: "", price: 10.0, protein: 35, imageURL: "https://bakerbynature.com/wp-content/uploads/2015/10/IMG_8442-31-500x375.jpg"), Request(name: "С морепродуктами", calories: 450, id: 3, carbs: 15, requestDescription: "", price: 12.0, protein: 30, imageURL: "https://lh5.googleusercontent.com/dW9MQSObavamZ_T9m1OdsyaEO4PHDZfB1kvR_jFL0U2kwyRwnxl_2aUYkUEV_qD3rRpPuLYgDsR-lzdQ_KNUl3vviLHjAUkaXrOThU2Ce4e0MDu1dGG9OzJZYaYvQWO94LC1qAzm")]
+            self.pizzas = [Request(name: "Ветчина и Грибы", calories: 400, id: 2, carbs: 10, requestDescription: "Ветчина, шампиньоны, увеличенная порция, моцареллы, томатный соус", price: 345, protein: 35, imageURL: "https://cdn-irec.r-99.com/sites/default/files/imagecache/300o/product-images/138315/z7cDcI7BOszmoOoV7vHD0w.jpg"), Request(name: "Баварские колбаски", calories: 450, id: 3, carbs: 15, requestDescription: "Баварские колбаски, ветчина, пикантная пепперони, острая чоризо, моцарелла, томатный соус", price: 345, protein: 30, imageURL: "https://rp55.ru/wp-content/uploads/2018/03/Ohotnichya-2-600x600.jpg"), Request(name: "Нежный лосось", calories: 494, id: 1, carbs: 0, requestDescription: "Лосось, томаты черри, моцарелла, соус песто", price: 345, protein: 48, imageURL: "https://i0.wp.com/cafelumier.ru/wp-content/uploads/2020/12/6-15.png?fit=600%2C450&ssl=1"), ]
             self.delegate?.presentPizzas(pizzas: self.pizzas)
             print(self.pizzas)
         }
@@ -118,7 +118,7 @@ class FoodPresenter {
             }
             
             switch lastString {
-              
+                
             case _ where lastString.contains("Предложени") || lastString.contains("предложени"):
                 self.scrollTable(section: 0)
                 
@@ -168,8 +168,8 @@ class FoodPresenter {
         
         // 2
         self.tableView?.scrollToRow(at: topRow,
-                                   at: .top,
-                                   animated: true)
+                                    at: .top,
+                                    animated: true)
     }
     
     func SetFoodDelegate(delegate: FoodPresentDelegate & UIViewController) {

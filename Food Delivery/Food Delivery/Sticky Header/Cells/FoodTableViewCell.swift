@@ -17,6 +17,7 @@ class FoodTableViewCell: UITableViewCell {
     
     @IBOutlet weak var FoodImage: UIImageView!
     @IBOutlet weak var FoodName: UILabel!
-    @IBOutlet weak var FoodPrice: UILabel!
+    @IBOutlet weak var FoodDescription: UILabel!
+    @IBOutlet weak var PriceButton: UIButton!
     
 }

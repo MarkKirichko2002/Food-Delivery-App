@@ -8,51 +8,62 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FoodTableViewCell" id="yd5-bb-aL0" customClass="FoodTableViewCell" customModule="Food_Delivery" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="430" height="138.33332824707031"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FoodTableViewCell" rowHeight="172" id="yd5-bb-aL0" customClass="FoodTableViewCell" customModule="Food_Delivery" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="512" height="172"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yd5-bb-aL0" id="Pkl-Tm-MKc">
-                <rect key="frame" x="0.0" y="0.0" width="430" height="138.33332824707031"/>
+                <rect key="frame" x="0.0" y="0.0" width="512" height="172"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="za3-QD-dhJ" customClass="RoundedImageView" customModule="Food_Delivery" customModuleProvider="target">
-                        <rect key="frame" x="36" y="19" width="100" height="100"/>
+                        <rect key="frame" x="36" y="19" width="130" height="130"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="100" id="mJS-w3-T9M"/>
-                            <constraint firstAttribute="width" constant="100" id="vIJ-UT-pza"/>
+                            <constraint firstAttribute="height" constant="130" id="mJS-w3-T9M"/>
+                            <constraint firstAttribute="width" constant="130" id="vIJ-UT-pza"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vgE-Ag-zEa">
-                        <rect key="frame" x="144" y="19" width="242" height="18"/>
-                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
+                        <rect key="frame" x="196" y="19" width="272" height="19.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qub-mN-Tp2">
-                        <rect key="frame" x="144" y="47.333333333333336" width="38.666666666666657" height="18.000000000000007"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qub-mN-Tp2">
+                        <rect key="frame" x="196" y="48.666666666666664" width="34" height="15.666666666666664"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1il-CL-ijy">
+                        <rect key="frame" x="419.33333333333331" y="114" width="62.666666666666686" height="35"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="цена">
+                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </buttonConfiguration>
+                    </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="1il-CL-ijy" firstAttribute="bottom" secondItem="za3-QD-dhJ" secondAttribute="bottom" id="2hT-JO-EJ3"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="qub-mN-Tp2" secondAttribute="trailing" constant="20" symbolic="YES" id="3TZ-Dd-odM"/>
                     <constraint firstItem="za3-QD-dhJ" firstAttribute="top" secondItem="Pkl-Tm-MKc" secondAttribute="topMargin" constant="8" id="BPk-O1-GnX"/>
                     <constraint firstAttribute="trailingMargin" secondItem="vgE-Ag-zEa" secondAttribute="trailing" constant="24" id="Hwg-xh-sag"/>
                     <constraint firstItem="za3-QD-dhJ" firstAttribute="leading" secondItem="Pkl-Tm-MKc" secondAttribute="leadingMargin" constant="16" id="Nd5-Fl-NXw"/>
                     <constraint firstItem="qub-mN-Tp2" firstAttribute="leading" secondItem="vgE-Ag-zEa" secondAttribute="leading" id="QkM-N8-t0D"/>
                     <constraint firstItem="vgE-Ag-zEa" firstAttribute="top" secondItem="za3-QD-dhJ" secondAttribute="top" constant="7.1054273576010019e-15" id="cpu-vN-E2v"/>
+                    <constraint firstItem="qub-mN-Tp2" firstAttribute="leading" secondItem="za3-QD-dhJ" secondAttribute="trailing" constant="30" id="dnB-hA-8IQ"/>
                     <constraint firstItem="qub-mN-Tp2" firstAttribute="top" secondItem="vgE-Ag-zEa" secondAttribute="bottom" constant="10.333333333333343" id="r4B-Cf-zCC"/>
                     <constraint firstAttribute="bottomMargin" secondItem="za3-QD-dhJ" secondAttribute="bottom" constant="8" id="rZj-2J-i6r"/>
-                    <constraint firstItem="vgE-Ag-zEa" firstAttribute="leading" secondItem="za3-QD-dhJ" secondAttribute="trailing" constant="8" id="uDj-7K-Z97"/>
+                    <constraint firstAttribute="bottom" secondItem="1il-CL-ijy" secondAttribute="bottom" constant="20" id="w6b-h6-NgU"/>
+                    <constraint firstAttribute="trailing" secondItem="1il-CL-ijy" secondAttribute="trailing" constant="30" id="zAy-SH-ljE"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="FoodDescription" destination="qub-mN-Tp2" id="1Eg-P6-OlY"/>
                 <outlet property="FoodImage" destination="za3-QD-dhJ" id="A2v-l9-wo2"/>
                 <outlet property="FoodName" destination="vgE-Ag-zEa" id="ASK-vx-2XV"/>
-                <outlet property="FoodPrice" destination="qub-mN-Tp2" id="aYx-si-5Aq"/>
+                <outlet property="PriceButton" destination="1il-CL-ijy" id="69R-he-oxO"/>
             </connections>
-            <point key="canvasLocation" x="-66" y="86"/>
+            <point key="canvasLocation" x="-129.23076923076923" y="97.393364928909946"/>
         </tableViewCell>
     </objects>
 </document>

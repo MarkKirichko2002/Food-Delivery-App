@@ -352,7 +352,7 @@
         <!--Food Detail View Controller-->
         <scene sceneID="TNi-IN-K0F">
             <objects>
-                <viewController storyboardIdentifier="FoodDetailViewController" id="Aey-Yv-XBd" customClass="FoodDetailViewController" customModule="Food_Delivery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoodDetailViewController" hidesBottomBarWhenPushed="YES" id="Aey-Yv-XBd" customClass="FoodDetailViewController" customModule="Food_Delivery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bb6-EE-fy9">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

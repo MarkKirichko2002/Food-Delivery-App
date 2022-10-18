@@ -26,7 +26,7 @@ class FoodDetailViewController: UIViewController {
         super.viewDidLoad()
         FoodImage.sd_setImage(with: URL(string: imageURL))
         FoodName.text = name
-        FoodPrice.text = "цена: \(price) $"
+        FoodPrice.text = "цена: \(price) р"
         FoodCarbs.text = "углеводы: \(carbs)"
         FoodCalories.text = "калории: \(calories)"
     }

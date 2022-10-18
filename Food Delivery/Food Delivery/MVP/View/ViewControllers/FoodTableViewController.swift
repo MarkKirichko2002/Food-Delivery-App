@@ -55,10 +55,7 @@ extension FoodTableViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: FoodTableViewCell.identifier, for: indexPath) as! FoodTableViewCell
         cell.FoodImage.sd_setImage(with: URL(string: "\(foodpages[indexPath.section].list[indexPath.row].imageURL)"))
         cell.FoodName.text = "\(foodpages[indexPath.section].list[indexPath.row].name)"
-        cell.FoodPrice.text = "\(foodpages[indexPath.section].list[indexPath.row].price)$"
-        if foodpages[indexPath.section].list[indexPath.row].price == 0 {
-            cell.FoodPrice.text = ""
-        }
+        //cell.FoodPrice.text = "\(foodpages[indexPath.section].list[indexPath.row].price)$"
         return cell
     }
     

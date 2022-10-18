@@ -46,7 +46,7 @@ class FoodContentViewController: UIViewController, FoodPresentDelegate {
         
         switch number {
         case 0:
-            presenter.GetFood()
+            presenter.GetPizzas()
             
         case 1:
             presenter.GetHamburgers()
@@ -55,7 +55,7 @@ class FoodContentViewController: UIViewController, FoodPresentDelegate {
             presenter.GetCola()
             
         case 3:
-            presenter.GetPizzas()
+            presenter.GetFood()
             
         default:
             break
@@ -115,7 +115,10 @@ extension FoodContentViewController: UITableViewDataSource {
             
             cell.FoodImage.sd_setImage(with: URL(string: foods[indexPath.row].imageURL))
             cell.FoodName.text = foods[indexPath.row].name
-            cell.FoodPrice.text = "\(foods[indexPath.row].price)"
+            cell.FoodDescription.text = "\(foods[indexPath.row].requestDescription)"
+            cell.PriceButton.setTitle("от \(foods[indexPath.row].price)", for: .normal)
+            cell.PriceButton.layer.cornerRadius = cell.PriceButton.frame.width / 6
+            cell.PriceButton.layer.borderWidth = 1
             return cell
         }
         
