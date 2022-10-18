@@ -121,6 +121,18 @@ extension FoodContentViewController: UITableViewDataSource {
         
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(identifier: "FoodDetailViewController") as? FoodDetailViewController else {return}
+        vc.imageURL = foods[indexPath.row].imageURL
+        vc.name = foods[indexPath.row].name
+        vc.price = foods[indexPath.row].price
+        vc.carbs = foods[indexPath.row].carbs
+        vc.calories = foods[indexPath.row].calories
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
 
 extension FoodContentViewController: UITableViewDelegate {
