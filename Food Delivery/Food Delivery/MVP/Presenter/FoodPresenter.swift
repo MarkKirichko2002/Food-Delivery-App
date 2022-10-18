@@ -40,7 +40,6 @@ class FoodPresenter {
         networkService.GetFood { food in
             DispatchQueue.main.async {
                 self.foods = food
-                print(self.foods)
                 self.delegate?.presentAppetizers(food: self.foods)
             }
         }
@@ -64,6 +63,7 @@ class FoodPresenter {
         DispatchQueue.main.async {
             self.pizzas = [Request(name: "Пеперони", calories: 494, id: 1, carbs: 0, requestDescription: "Пеперо́ни — острая разновидность салями итало-американского происхождения, а также название пиццы американского происхождения", price: 15.0, protein: 48, imageURL: "https://static.pizzasushiwok.ru/images/menu_new/6-1300.jpg"), Request(name: "Грибная", calories: 400, id: 2, carbs: 10, requestDescription: "", price: 10.0, protein: 35, imageURL: "https://bakerbynature.com/wp-content/uploads/2015/10/IMG_8442-31-500x375.jpg"), Request(name: "С морепродуктами", calories: 450, id: 3, carbs: 15, requestDescription: "", price: 12.0, protein: 30, imageURL: "https://lh5.googleusercontent.com/dW9MQSObavamZ_T9m1OdsyaEO4PHDZfB1kvR_jFL0U2kwyRwnxl_2aUYkUEV_qD3rRpPuLYgDsR-lzdQ_KNUl3vviLHjAUkaXrOThU2Ce4e0MDu1dGG9OzJZYaYvQWO94LC1qAzm")]
             self.delegate?.presentPizzas(pizzas: self.pizzas)
+            print(self.pizzas)
         }
     }
     
