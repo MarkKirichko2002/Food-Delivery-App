@@ -35,7 +35,7 @@ class StickyHeaderFoodViewController: UIViewController {
     
     let tabContentVC = FoodContentViewController()
     
-    let pages = ["Закуски", "Бургеры", "Кола", "Пицца"]
+    let pages = ["Пицца", "Бургеры", "Кола", "Закуски"]
     
     var foods = [Request]()
     
@@ -104,7 +104,7 @@ class StickyHeaderFoodViewController: UIViewController {
             
             switch page {
                 
-            case "Закуски":
+            case "Пицца":
                 tabContentVC.number = 0
                 
             case "Бургеры":
@@ -113,9 +113,9 @@ class StickyHeaderFoodViewController: UIViewController {
             case "Кола":
                 tabContentVC.number = 2
                 
-            case "Пицца":
+            case "Закуски":
                 tabContentVC.number = 3
-                
+            
             default:
                 break
             }

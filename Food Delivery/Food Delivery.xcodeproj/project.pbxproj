@@ -108,13 +108,6 @@
 			path = "Sticky Header";
 			sourceTree = "<group>";
 		};
-		82411C9428FC609C00DD60DB /* TableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = TableViewCell;
-			sourceTree = "<group>";
-		};
 		82411C9728FC8AB700DD60DB /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,7 +201,6 @@
 		82826FC628F88F82008798D5 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				82411C9428FC609C00DD60DB /* TableViewCell */,
 				82826FDE28F8A19B008798D5 /* Categories */,
 				82826FE028F8A1A1008798D5 /* Banner */,
 				82826FDF28F8A19D008798D5 /* Food */,

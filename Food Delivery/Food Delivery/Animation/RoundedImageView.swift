@@ -17,8 +17,8 @@ class RoundedImageView: UIImageView {
         let tap = UITapGestureRecognizer(target: self, action: #selector(tapFunction))
         self.isUserInteractionEnabled = true
         self.addGestureRecognizer(tap)
-        self.layer.borderWidth = 3
-        self.layer.borderColor = UIColor.black.cgColor
+//        self.layer.borderWidth = 3
+//        self.layer.borderColor = UIColor.black.cgColor
     }
     
     @IBAction func tapFunction(sender: UITapGestureRecognizer) {
