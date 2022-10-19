@@ -37,10 +37,13 @@ class StickyHeaderFoodViewController: UIViewController {
     
     let pages = ["Пицца", "Бургеры", "Кола", "Закуски"]
     
+    let bannerimages = ["pizza", "hamburger", "cola"]
+    
     var foods = [Request]()
     
     @IBOutlet weak var stickyHeaderView: UIView!
     @IBOutlet weak var tabBarCollectionView: UICollectionView!
+    @IBOutlet weak var BannerCollectionView: UICollectionView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
     
@@ -51,7 +54,6 @@ class StickyHeaderFoodViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabContentVC.presenter = presenter
         setupCollectionView()
         setupPagingViewController()
         populateBottomView()
@@ -63,10 +65,13 @@ class StickyHeaderFoodViewController: UIViewController {
         let layout = tabBarCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.estimatedItemSize = CGSize(width: 100, height: 50)
         
-        tabBarCollectionView.register(UINib(nibName: TabBarCollectionViewCellID, bundle: nil),
-                                      forCellWithReuseIdentifier: TabBarCollectionViewCellID)
+        let nib = UINib(nibName: TabBarCollectionViewCell.identifier, bundle: nil)
+        tabBarCollectionView.register(nib, forCellWithReuseIdentifier: TabBarCollectionViewCell.identifier)
         tabBarCollectionView.dataSource = self
         tabBarCollectionView.delegate = self
+        
+        BannerCollectionView.delegate = self
+        BannerCollectionView.dataSource = self
         
         setupSelectedTabView()
     }
@@ -218,16 +223,40 @@ class StickyHeaderFoodViewController: UIViewController {
 extension StickyHeaderFoodViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        switch collectionView {
         
-        return pageCollection.pages.count
+        case tabBarCollectionView:
+            return pageCollection.pages.count
+            
+        case BannerCollectionView:
+            return bannerimages.count
+            
+        default:
+            break
+            
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let tabCell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarCollectionViewCellID, for: indexPath) as? TabBarCollectionViewCell {
+        switch collectionView {
             
-            tabCell.tabNameLabel.text = pageCollection.pages[indexPath.row].name
-            return tabCell
+        case tabBarCollectionView:
+            
+            let tabCell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarCollectionViewCell.identifier, for: indexPath) as! TabBarCollectionViewCell
+                
+                tabCell.tabNameLabel.text = pageCollection.pages[indexPath.row].name
+                return tabCell
+            
+        case BannerCollectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCell.identifier, for: indexPath) as! BannerCell
+                
+                cell.BannerImage.image = UIImage(named: bannerimages[indexPath.row])
+                return cell
+            
+        default:
+            break
         }
         
         return UICollectionViewCell()
@@ -237,25 +266,6 @@ extension StickyHeaderFoodViewController: UICollectionViewDataSource {
 extension StickyHeaderFoodViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-//        switch indexPath.item {
-//
-//        case 0:
-//            tabContentVC.number = 0
-//
-//        case 1:
-//            tabContentVC.number = 1
-//
-//        case 2:
-//            tabContentVC.number = 2
-//
-//        case 3:
-//            tabContentVC.number = 3
-//
-//        default:
-//            tabContentVC.number = 0
-//
-//        }
         
         if indexPath.item == pageCollection.selectedPageIndex {
           return
@@ -393,10 +403,9 @@ extension StickyHeaderFoodViewController: InnerTableViewScrollDelegate {
             time = 0.25
         }
         
-        headerViewHeightConstraint.constant = topViewInitialHeight
+       // headerViewHeightConstraint.constant = topViewInitialHeight
         
         UIView.animate(withDuration: TimeInterval(time), animations: {
-            
             self.view.layoutIfNeeded()
         })
     }

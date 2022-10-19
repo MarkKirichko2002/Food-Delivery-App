@@ -7,11 +7,11 @@
 
 import UIKit
 
-let TabBarCollectionViewCellID = "TabBarCollectionViewCell"
-
 class TabBarCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var tabNameLabel: UILabel!
+    
+    static let identifier = "TabBarCollectionViewCell"
     
     override func awakeFromNib() {
         
