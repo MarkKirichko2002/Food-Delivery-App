@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -526,25 +527,74 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxa-VO-7T9">
-                                <rect key="frame" x="0.0" y="103" width="430" height="200"/>
+                                <rect key="frame" x="0.0" y="103" width="430" height="350"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="bKg-Pf-sD7">
-                                        <rect key="frame" x="115" y="25" width="200" height="150"/>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="JWK-AM-n4K">
+                                        <rect key="frame" x="0.0" y="0.0" width="430" height="350"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="bKg-Pf-sD7" secondAttribute="height" constant="50" id="ZEr-le-hed"/>
+                                            <constraint firstAttribute="width" constant="50" id="AbK-oa-xwd"/>
+                                            <constraint firstAttribute="height" constant="50" id="XfA-5K-vwv"/>
                                         </constraints>
-                                    </imageView>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="luh-EB-h6a">
+                                            <size key="itemSize" width="423" height="286"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BannerCell" id="gYM-TK-bj8" customClass="BannerCell" customModule="Food_Delivery" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="32" width="423" height="286"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lhJ-gy-Ahr">
+                                                    <rect key="frame" x="0.0" y="0.0" width="423" height="286"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="oC7-lB-VtD">
+                                                            <rect key="frame" x="0.0" y="0.0" width="423" height="286"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="500" id="dBk-B9-hSN"/>
+                                                                <constraint firstAttribute="height" constant="500" id="h05-wh-pg0"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="oC7-lB-VtD" secondAttribute="bottom" id="Str-uN-vmb"/>
+                                                        <constraint firstItem="oC7-lB-VtD" firstAttribute="leading" secondItem="lhJ-gy-Ahr" secondAttribute="leading" id="ciX-SO-Gb3"/>
+                                                        <constraint firstItem="oC7-lB-VtD" firstAttribute="top" secondItem="lhJ-gy-Ahr" secondAttribute="top" id="rp5-Gs-8hV"/>
+                                                        <constraint firstAttribute="trailing" secondItem="oC7-lB-VtD" secondAttribute="trailing" id="x3v-6G-wSF"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <size key="customSize" width="423" height="286"/>
+                                                <connections>
+                                                    <outlet property="BannerImage" destination="oC7-lB-VtD" id="LFa-Po-uuI"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="LKd-LC-nof"/>
-                                    <constraint firstItem="bKg-Pf-sD7" firstAttribute="height" secondItem="hxa-VO-7T9" secondAttribute="height" multiplier="1:2" constant="50" id="iew-C3-kES"/>
-                                    <constraint firstItem="bKg-Pf-sD7" firstAttribute="centerY" secondItem="hxa-VO-7T9" secondAttribute="centerY" id="y3j-HG-C3T"/>
-                                    <constraint firstItem="bKg-Pf-sD7" firstAttribute="centerX" secondItem="hxa-VO-7T9" secondAttribute="centerX" id="yAZ-N4-MD8"/>
+                                    <constraint firstAttribute="bottom" secondItem="JWK-AM-n4K" secondAttribute="bottom" constant="100" id="3vX-d7-MZ4"/>
+                                    <constraint firstAttribute="bottom" secondItem="JWK-AM-n4K" secondAttribute="bottom" id="DNN-0n-bMT"/>
+                                    <constraint firstAttribute="trailing" secondItem="JWK-AM-n4K" secondAttribute="trailing" constant="30" id="EFl-Ik-ef5"/>
+                                    <constraint firstAttribute="height" constant="350" id="LKd-LC-nof"/>
+                                    <constraint firstItem="JWK-AM-n4K" firstAttribute="top" secondItem="hxa-VO-7T9" secondAttribute="top" constant="30" id="QIS-Mn-7sA"/>
+                                    <constraint firstItem="JWK-AM-n4K" firstAttribute="top" secondItem="hxa-VO-7T9" secondAttribute="top" constant="30" id="RXb-rQ-gmm"/>
+                                    <constraint firstItem="JWK-AM-n4K" firstAttribute="centerY" secondItem="hxa-VO-7T9" secondAttribute="centerY" id="Sxh-ql-W7D"/>
+                                    <constraint firstItem="JWK-AM-n4K" firstAttribute="top" secondItem="hxa-VO-7T9" secondAttribute="top" id="TZi-kQ-BkT"/>
+                                    <constraint firstItem="JWK-AM-n4K" firstAttribute="leading" secondItem="hxa-VO-7T9" secondAttribute="leading" id="UEL-G8-YOs"/>
+                                    <constraint firstAttribute="trailing" secondItem="JWK-AM-n4K" secondAttribute="trailing" constant="30" id="UZv-PX-Upf"/>
+                                    <constraint firstItem="JWK-AM-n4K" firstAttribute="leading" secondItem="hxa-VO-7T9" secondAttribute="leading" constant="30" id="XmL-IP-Qon"/>
+                                    <constraint firstAttribute="bottom" secondItem="JWK-AM-n4K" secondAttribute="bottom" constant="30" id="aCk-Be-XEJ"/>
+                                    <constraint firstItem="JWK-AM-n4K" firstAttribute="centerX" secondItem="hxa-VO-7T9" secondAttribute="centerX" id="fUG-I4-gh2"/>
+                                    <constraint firstAttribute="bottom" secondItem="JWK-AM-n4K" secondAttribute="bottom" constant="30" id="g0O-h6-52H"/>
+                                    <constraint firstItem="JWK-AM-n4K" firstAttribute="leading" secondItem="hxa-VO-7T9" secondAttribute="leading" constant="30" id="nZH-3w-nIJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="JWK-AM-n4K" secondAttribute="trailing" id="zhc-XB-QCT"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Tch-al-nzY">
-                                <rect key="frame" x="0.0" y="303" width="430" height="60"/>
+                                <rect key="frame" x="0.0" y="453" width="430" height="60"/>
                                 <color key="backgroundColor" systemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="xq0-uk-6OC"/>
@@ -558,7 +608,7 @@
                                 <cells/>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r6s-TI-DQs">
-                                <rect key="frame" x="0.0" y="363" width="430" height="486"/>
+                                <rect key="frame" x="0.0" y="513" width="430" height="336"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oyn-Pu-E9Y"/>
@@ -578,6 +628,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="CGH-Uc-wfO"/>
                     <connections>
+                        <outlet property="BannerCollectionView" destination="JWK-AM-n4K" id="HNE-5s-y8p"/>
                         <outlet property="bottomView" destination="r6s-TI-DQs" id="e6b-II-7F6"/>
                         <outlet property="headerViewHeightConstraint" destination="LKd-LC-nof" id="a6y-8G-kwk"/>
                         <outlet property="stickyHeaderView" destination="hxa-VO-7T9" id="0jt-GZ-3Q4"/>
@@ -586,37 +637,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2K4-kL-LbP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="-212"/>
-        </scene>
-        <!--Food Content View Controller-->
-        <scene sceneID="0ID-sL-kOE">
-            <objects>
-                <viewController id="hrn-Y6-FwW" customClass="FoodContentViewController" customModule="Food_Delivery" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="ivn-JH-5Ze">
-                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZtS-rR-dic">
-                                <rect key="frame" x="0.0" y="59" width="430" height="839"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="tJV-GU-tjv"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="ZtS-rR-dic" firstAttribute="top" secondItem="tJV-GU-tjv" secondAttribute="top" id="AEi-w2-gXe"/>
-                            <constraint firstItem="tJV-GU-tjv" firstAttribute="bottom" secondItem="ZtS-rR-dic" secondAttribute="bottom" id="FU3-8o-UNY"/>
-                            <constraint firstItem="ZtS-rR-dic" firstAttribute="leading" secondItem="tJV-GU-tjv" secondAttribute="leading" id="pKg-oO-Xzg"/>
-                            <constraint firstItem="tJV-GU-tjv" firstAttribute="trailing" secondItem="ZtS-rR-dic" secondAttribute="trailing" id="pbS-56-9Pd"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="ZtS-rR-dic" id="fgw-sc-4V1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gHp-t4-wWc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2972" y="-216"/>
+            <point key="canvasLocation" x="1813.953488372093" y="-212.4463519313305"/>
         </scene>
         <!--Menu Controller-->
         <scene sceneID="9Si-QO-VBK">
