@@ -32,5 +32,27 @@ class AnimationClass {
         image.layer.add(animation, forKey: nil)
     }
     
+    func springImage(button: UIButton) {
+        let animation = CASpringAnimation(keyPath: "transform.scale")
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.stiffness = 300
+        animation.mass = 1
+        animation.duration = 0.5
+        animation.beginTime = CACurrentMediaTime() + 0
+        button.layer.add(animation, forKey: nil)
+    }
+    
+    func TabBarItemAnimation(item: UITabBarItem) {
+        guard let barItemView = item.value(forKey: "view") as? UIView else { return }
+        
+        let timeInterval: TimeInterval = 0.3
+        let propertyAnimator = UIViewPropertyAnimator(duration: timeInterval, dampingRatio: 1.5) {
+            barItemView.transform = CGAffineTransform.identity.scaledBy(x: 1.5, y: 1.5)
+        }
+        propertyAnimator.addAnimations({ barItemView.transform = .identity }, delayFactor: CGFloat(timeInterval))
+        propertyAnimator.startAnimation()
+    }
+    
 }
 
