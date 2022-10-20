@@ -9,8 +9,14 @@ import UIKit
 
 class MenuController: UITabBarController {
 
+    var animation = AnimationClass()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        animation.TabBarItemAnimation(item: item)
     }
     
 }

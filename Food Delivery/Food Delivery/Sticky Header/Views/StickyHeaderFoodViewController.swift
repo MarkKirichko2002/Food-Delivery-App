@@ -79,7 +79,6 @@ class StickyHeaderFoodViewController: UIViewController {
     func setupSelectedTabView() {
         
         let label = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 10, height: 10))
-        label.text = " \(1)"
         label.sizeToFit()
         var width = label.intrinsicContentSize.width
         width = width + 40
