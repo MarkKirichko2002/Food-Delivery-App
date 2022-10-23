@@ -36,6 +36,7 @@ class StickyHeaderFoodViewController: UIViewController {
     let tabContentVC = FoodContentViewController()
     
     let pages = ["Пицца", "Бургеры", "Кола", "Закуски"]
+    var pagenumber = [Int]()
     
     let bannerimages = ["pizza", "hamburger", "cola"]
     
@@ -51,6 +52,7 @@ class StickyHeaderFoodViewController: UIViewController {
     var selectedTabView = UIView()
     var pageCollection = PageCollection()
     var presenter = FoodPresenter()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,27 +101,25 @@ class StickyHeaderFoodViewController: UIViewController {
     
     func populateBottomView() {
         
-        tabContentVC.foods = self.foods
-        
         for page in pages {
             
             let tabContentVC = FoodContentViewController()
             tabContentVC.innerTableViewScrollDelegate = self
             
             switch page {
-                
+
             case "Пицца":
                 tabContentVC.number = 0
-                
+
             case "Бургеры":
                 tabContentVC.number = 1
-                
+
             case "Кола":
                 tabContentVC.number = 2
-                
+
             case "Закуски":
                 tabContentVC.number = 3
-            
+
             default:
                 break
             }
@@ -265,8 +265,9 @@ extension StickyHeaderFoodViewController: UICollectionViewDataSource {
 extension StickyHeaderFoodViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+          
         if indexPath.item == pageCollection.selectedPageIndex {
+
           return
         }
         
