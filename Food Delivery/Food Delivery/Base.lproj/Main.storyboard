@@ -424,7 +424,7 @@
         <!--Доставка Еды-->
         <scene sceneID="GsI-yV-9SY">
             <objects>
-                <viewController id="HmL-gG-pUW" customClass="FoodTableViewController" customModule="Food_Delivery" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FoodTableViewController" id="HmL-gG-pUW" customClass="FoodTableViewController" customModule="Food_Delivery" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L5s-ew-jlN">
                         <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -503,15 +503,12 @@
                                 <buttonConfiguration key="configuration" style="plain" image="mic" catalog="system">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
-                                <connections>
-                                    <action selector="SpeechRecognition" destination="HmL-gG-pUW" eventType="touchUpInside" id="mh8-ur-Cqv"/>
-                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="MicrophoneButton" destination="7kB-uV-Gs3" id="mj7-aU-s5y"/>
-                        <outlet property="tableView" destination="UNz-dP-Lcb" id="47g-LN-KSY"/>
+                        <outlet property="tableView" destination="UNz-dP-Lcb" id="W7k-bT-aya"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kqH-IV-7d6" sceneMemberID="firstResponder"/>

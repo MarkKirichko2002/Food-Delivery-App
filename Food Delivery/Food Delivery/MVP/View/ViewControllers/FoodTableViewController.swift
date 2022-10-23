@@ -19,7 +19,7 @@ class FoodTableViewController: UIViewController {
     @IBAction func SpeechRecognition() {
         presenter.isStart = !presenter.isStart
         if presenter.isStart {
-            presenter.startSpeechRecognization()
+          //  presenter.startSpeechRecognization()
         } else {
             presenter.cancelSpeechRecognization()
         }
