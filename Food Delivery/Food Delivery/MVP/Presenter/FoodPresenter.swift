@@ -30,7 +30,7 @@ class FoodPresenter {
     var tableView: UITableView?
     var button: UIButton?
     var isStart: Bool = false
-    
+   
     let audioEngine = AVAudioEngine()
     let speechReconizer = SFSpeechRecognizer(locale: Locale.init(identifier: "ru-RU"))
     let request = SFSpeechAudioBufferRecognitionRequest()
@@ -47,7 +47,7 @@ class FoodPresenter {
     
     func GetHamburgers() {
         DispatchQueue.main.async {
-            self.hamburgers = [Request(name: "фишбургер", calories: 278, id: 1, carbs: 8, requestDescription: "Фиш Бургер - это филе хорошо прожаренной рыбы (семейства тресковых), которое подается на пропаренной булочке с половинкой кусочка сыра Чеддер, заправленной специальным соусом Тар-Тар.", price: 10.0, protein: 10, imageURL: "https://www.gastronom.ru/binfiles/images/20170531/b5e02efe.jpg"), Request(name: "чизбургер", calories: 303, id: 2, carbs: 30, requestDescription: "Чи́збургер (англ. cheeseburger, от cheese — сыр) — это гамбургер с сыром. Традиционно ломтик сыра кладется поверх мясной котлеты. Сыр обычно добавляют в готовящийся гамбургер незадолго до подачи на стол, что позволяет сыру расплавиться.", price: 10.0, protein: 15, imageURL: "https://www.maggi.ru/data/images/recept/img640x500/recept_3682_avoa.jpg"), Request(name: "блэк бургер", calories: 250, id: 10, carbs: 30, requestDescription: "", price: 10.0, protein: 40, imageURL: "https://irecommend.ru/sites/default/files/product-images/684763/fMRdsudml6qhVdOOcVxpnQ.jpg")]
+            self.hamburgers = [Request(name: "фишбургер", calories: 278, id: 1, carbs: 8, requestDescription: "Фиш Бургер - это филе хорошо прожаренной рыбы (семейства тресковых), которое подается на пропаренной булочке с половинкой кусочка сыра Чеддер, заправленной специальным соусом Тар-Тар.", price: 150.0, protein: 10, imageURL: "https://www.gastronom.ru/binfiles/images/20170531/b5e02efe.jpg"), Request(name: "чизбургер", calories: 303, id: 2, carbs: 30, requestDescription: "Чи́збургер (англ. cheeseburger, от cheese — сыр) — это гамбургер с сыром. Традиционно ломтик сыра кладется поверх мясной котлеты. Сыр обычно добавляют в готовящийся гамбургер незадолго до подачи на стол, что позволяет сыру расплавиться.", price: 200.0, protein: 15, imageURL: "https://www.maggi.ru/data/images/recept/img640x500/recept_3682_avoa.jpg"), Request(name: "блэк бургер", calories: 250, id: 10, carbs: 30, requestDescription: "", price: 180.0, protein: 40, imageURL: "https://irecommend.ru/sites/default/files/product-images/684763/fMRdsudml6qhVdOOcVxpnQ.jpg")]
             self.delegate?.presentHamburgers(hamburgers: self.hamburgers)
         }
     }
@@ -119,29 +119,23 @@ class FoodPresenter {
             
             switch lastString {
                 
-            case _ where lastString.contains("Предложени") || lastString.contains("предложени"):
-                self.scrollTable(section: 0)
-                
             case _ where lastString.contains("Вверх") || lastString.contains("вверх"):
                 self.scrollTable(section: 0)
                 
             case _ where lastString.contains("Вниз") || lastString.contains("вниз"):
-                self.scrollTable(section: 5)
-                
-            case _ where lastString.contains("Категори") || lastString.contains("категори"):
-                self.scrollTable(section: 1)
-                
-            case _ where lastString.contains("Закуски") || lastString.contains("закуски"):
-                self.scrollTable(section: 5)
+                self.scrollTable(section: 3)
+               
+            case _ where lastString.contains("Пицц") || lastString.contains("пицц"):
+                self.scrollTable(section: 0)
                 
             case _ where lastString.contains("Бургер") || lastString.contains("бургер"):
-                self.scrollTable(section: 2)
+                self.scrollTable(section: 1)
                 
             case _ where lastString.contains("Кол") || lastString.contains("кол"):
+                self.scrollTable(section: 2)
+        
+            case _ where lastString.contains("Закуски") || lastString.contains("закуски"):
                 self.scrollTable(section: 3)
-                
-            case _ where lastString.contains("Пицц") || lastString.contains("пицц"):
-                self.scrollTable(section: 4)
                 
             case _ where lastString.contains("Стоп") || lastString.contains("стоп"):
                 self.button?.sendActions(for: .touchUpInside)

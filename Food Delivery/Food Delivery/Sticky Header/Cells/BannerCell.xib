@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BannerCell" id="Veg-1B-8HW" customClass="BannerCell" customModule="Food_Delivery" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsl-Zy-5zi" customClass="CardView" customModule="Food_Delivery" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="330" height="100"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hamburger" translatesAutoresizingMaskIntoConstraints="NO" id="BgM-hz-Oxv" customClass="RoundedImageView" customModule="Food_Delivery" customModuleProvider="target">
+                                <rect key="frame" x="16" y="16" width="68" height="68"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="Xff-VM-rew"/>
+                                    <constraint firstAttribute="height" constant="68" id="abp-zk-LDE"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Pdg-Td-DaP">
+                                <rect key="frame" x="100" y="16" width="214" height="68"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlK-UW-kMt">
+                                        <rect key="frame" x="0.0" y="0.0" width="214" height="68"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="330" id="2bY-Gg-pF4"/>
+                            <constraint firstItem="Pdg-Td-DaP" firstAttribute="top" secondItem="BgM-hz-Oxv" secondAttribute="top" id="ByV-Qx-oWV"/>
+                            <constraint firstItem="BgM-hz-Oxv" firstAttribute="top" secondItem="rsl-Zy-5zi" secondAttribute="top" constant="16" id="Im4-i1-AFI"/>
+                            <constraint firstItem="Pdg-Td-DaP" firstAttribute="bottom" secondItem="BgM-hz-Oxv" secondAttribute="bottom" id="aFx-VH-mHh"/>
+                            <constraint firstItem="Pdg-Td-DaP" firstAttribute="leading" secondItem="BgM-hz-Oxv" secondAttribute="trailing" constant="16" id="hex-nf-wMa"/>
+                            <constraint firstItem="BgM-hz-Oxv" firstAttribute="leading" secondItem="rsl-Zy-5zi" secondAttribute="leading" constant="16" id="nYp-bI-VeD"/>
+                            <constraint firstAttribute="bottom" secondItem="BgM-hz-Oxv" secondAttribute="bottom" constant="16" id="qXd-Yu-wN3"/>
+                            <constraint firstAttribute="trailing" secondItem="Pdg-Td-DaP" secondAttribute="trailing" constant="16" id="uYV-V4-Bbg"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="2as-gZ-JXi"/>
+            <constraints>
+                <constraint firstItem="rsl-Zy-5zi" firstAttribute="leading" secondItem="Veg-1B-8HW" secondAttribute="leading" id="GkB-oJ-dAw"/>
+                <constraint firstAttribute="bottom" secondItem="rsl-Zy-5zi" secondAttribute="bottom" id="SOM-M0-8eO"/>
+                <constraint firstItem="rsl-Zy-5zi" firstAttribute="top" secondItem="Veg-1B-8HW" secondAttribute="top" id="iuC-J9-TdA"/>
+                <constraint firstAttribute="trailing" secondItem="rsl-Zy-5zi" secondAttribute="trailing" id="pxm-JG-b3m"/>
+            </constraints>
+            <size key="customSize" width="330" height="94"/>
+            <connections>
+                <outlet property="BannerImage" destination="BgM-hz-Oxv" id="hel-A8-OYC"/>
+                <outlet property="BannerText" destination="zlK-UW-kMt" id="F2c-bP-PSO"/>
+            </connections>
+            <point key="canvasLocation" x="72.463768115942031" y="112.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="hamburger" width="612" height="409"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

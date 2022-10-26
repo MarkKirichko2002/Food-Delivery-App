@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 struct Page {
     
@@ -22,7 +23,7 @@ struct Page {
 struct PageCollection {
     
     var pages = [Page]()
-    var selectedPageIndex = 0 
+    var selectedPageIndex = 0
 }
 
 var topViewInitialHeight : CGFloat = 200
@@ -33,49 +34,74 @@ let topViewHeightConstraintRange = topViewFinalHeight..<topViewInitialHeight
 
 class StickyHeaderFoodViewController: UIViewController {
     
-    let tabContentVC = FoodContentViewController()
+    let tabContentVC = UIViewController()
     
     let pages = ["Пицца", "Бургеры", "Кола", "Закуски"]
     var pagenumber = [Int]()
     
-    let bannerimages = ["pizza", "hamburger", "cola"]
+    let bannerimages = [Banner(text: "пицца", image: "pizza"), Banner(text: "бургеры", image: "hamburger"), Banner(text: "кола", image: "cola")]
     
-    var foods = [Request]()
+    var foodpages = [FoodPage]()
+    private var oldContentOffset = CGPoint.zero
     
     @IBOutlet weak var stickyHeaderView: UIView!
     @IBOutlet weak var tabBarCollectionView: UICollectionView!
     @IBOutlet weak var BannerCollectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var headerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var MicrophoneButton: UIButton!
+    
+    @IBAction func SpeechRecognition() {
+        presenter.isStart = !presenter.isStart
+        if presenter.isStart {
+            presenter.startSpeechRecognization()
+        } else {
+            presenter.cancelSpeechRecognization()
+        }
+    }
     
     var pageViewController = UIPageViewController()
     var selectedTabView = UIView()
     var pageCollection = PageCollection()
     var presenter = FoodPresenter()
-    
+    weak var innerTableViewScrollDelegate: InnerTableViewScrollDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.SetFoodDelegate(delegate: self)
+        presenter.SetTable(tableView: self.tableView)
+        presenter.SetButton(button: self.MicrophoneButton)
+        presenter.GetPizzas()
+        presenter.GetHamburgers()
+        presenter.GetCola()
+        presenter.GetFood()
         setupCollectionView()
+        setupTableView()
         setupPagingViewController()
         populateBottomView()
         addPanGestureToTopViewAndCollectionView()
     }
-        
+    
     func setupCollectionView() {
         
         let layout = tabBarCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
         layout?.estimatedItemSize = CGSize(width: 100, height: 50)
-        
-        let nib = UINib(nibName: TabBarCollectionViewCell.identifier, bundle: nil)
-        tabBarCollectionView.register(nib, forCellWithReuseIdentifier: TabBarCollectionViewCell.identifier)
         tabBarCollectionView.dataSource = self
         tabBarCollectionView.delegate = self
+        tabBarCollectionView.register(UINib(nibName: TabBarCollectionViewCell.identifier, bundle: nil), forCellWithReuseIdentifier: TabBarCollectionViewCell.identifier)
         
         BannerCollectionView.delegate = self
         BannerCollectionView.dataSource = self
+        BannerCollectionView.register(UINib(nibName: BannerCell.identifier, bundle: nil), forCellWithReuseIdentifier: BannerCell.identifier)
         
         setupSelectedTabView()
+    }
+    
+    func setupTableView() {
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.register(UINib(nibName: FoodTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: FoodTableViewCell.identifier)
     }
     
     func setupSelectedTabView() {
@@ -93,8 +119,8 @@ class StickyHeaderFoodViewController: UIViewController {
     func setupPagingViewController() {
         
         pageViewController = UIPageViewController(transitionStyle: .scroll,
-                                                      navigationOrientation: .horizontal,
-                                                      options: nil)
+                                                  navigationOrientation: .horizontal,
+                                                  options: nil)
         pageViewController.dataSource = self
         pageViewController.delegate = self
     }
@@ -102,27 +128,6 @@ class StickyHeaderFoodViewController: UIViewController {
     func populateBottomView() {
         
         for page in pages {
-            
-            let tabContentVC = FoodContentViewController()
-            tabContentVC.innerTableViewScrollDelegate = self
-            
-            switch page {
-
-            case "Пицца":
-                tabContentVC.number = 0
-
-            case "Бургеры":
-                tabContentVC.number = 1
-
-            case "Кола":
-                tabContentVC.number = 2
-
-            case "Закуски":
-                tabContentVC.number = 3
-
-            default:
-                break
-            }
             
             let displayName = page
             let page = Page(with: displayName, _vc: tabContentVC)
@@ -132,10 +137,9 @@ class StickyHeaderFoodViewController: UIViewController {
         let initialPage = 0
         
         pageViewController.setViewControllers([pageCollection.pages[initialPage].vc],
-                                                  direction: .forward,
-                                                  animated: true,
-                                                  completion: nil)
-        
+                                              direction: .forward,
+                                              animated: true,
+                                              completion: nil)
         
         addChild(pageViewController)
         pageViewController.willMove(toParent: self)
@@ -154,7 +158,7 @@ class StickyHeaderFoodViewController: UIViewController {
         pageViewController.view.topAnchor.constraint(equalTo: bottomView.topAnchor).isActive = true
         pageViewController.view.bottomAnchor.constraint(equalTo: bottomView.bottomAnchor).isActive = true
     }
-
+    
     func addPanGestureToTopViewAndCollectionView() {
         
         let topViewPanGesture = UIPanGestureRecognizer(target: self, action: #selector(topViewMoved))
@@ -192,7 +196,7 @@ class StickyHeaderFoodViewController: UIViewController {
             innerTableViewScrollEnded(withScrollDirection: dragDirection)
             
         default: return
-        
+            
         }
     }
     
@@ -201,9 +205,9 @@ class StickyHeaderFoodViewController: UIViewController {
     func setBottomPagingView(toPageWithAtIndex index: Int, andNavigationDirection navigationDirection: UIPageViewController.NavigationDirection) {
         
         pageViewController.setViewControllers([pageCollection.pages[index].vc],
-                                                  direction: navigationDirection,
-                                                  animated: true,
-                                                  completion: nil)
+                                              direction: navigationDirection,
+                                              animated: true,
+                                              completion: nil)
     }
     
     func scrollSelectedTabView(toIndexPath indexPath: IndexPath, shouldAnimate: Bool = true) {
@@ -223,7 +227,7 @@ extension StickyHeaderFoodViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
-        
+            
         case tabBarCollectionView:
             return pageCollection.pages.count
             
@@ -244,15 +248,16 @@ extension StickyHeaderFoodViewController: UICollectionViewDataSource {
         case tabBarCollectionView:
             
             let tabCell = collectionView.dequeueReusableCell(withReuseIdentifier: TabBarCollectionViewCell.identifier, for: indexPath) as! TabBarCollectionViewCell
-                
-                tabCell.tabNameLabel.text = pageCollection.pages[indexPath.row].name
-                return tabCell
+            
+            tabCell.tabNameLabel.text = pageCollection.pages[indexPath.row].name
+            return tabCell
             
         case BannerCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BannerCell.identifier, for: indexPath) as! BannerCell
-                
-                cell.BannerImage.image = UIImage(named: bannerimages[indexPath.row])
-                return cell
+            
+            cell.BannerImage.image = UIImage(named: bannerimages[indexPath.row].image)
+            cell.BannerText.text = bannerimages[indexPath.row].text
+            return cell
             
         default:
             break
@@ -265,10 +270,32 @@ extension StickyHeaderFoodViewController: UICollectionViewDataSource {
 extension StickyHeaderFoodViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-          
+        
+        switch indexPath.item {
+            
+        case 0:
+            presenter.scrollTable(section: 0)
+            print(0)
+            
+        case 1:
+            presenter.scrollTable(section: 1)
+            print(1)
+            
+        case 2:
+            presenter.scrollTable(section: 2)
+            print(2)
+            
+        case 3:
+            presenter.scrollTable(section: 3)
+            print(3)
+            
+        default:
+            break
+        }
+        
         if indexPath.item == pageCollection.selectedPageIndex {
-
-          return
+            
+            return
         }
         
         var direction: UIPageViewController.NavigationDirection
@@ -358,7 +385,7 @@ extension StickyHeaderFoodViewController: InnerTableViewScrollDelegate {
     }
     
     func innerTableViewDidScroll(withDistance scrollDistance: CGFloat) {
-       
+        
         headerViewHeightConstraint.constant -= scrollDistance
         
         if headerViewHeightConstraint.constant < topViewFinalHeight {
@@ -381,7 +408,7 @@ extension StickyHeaderFoodViewController: InnerTableViewScrollDelegate {
                 
             case .Down: scrollToInitialView()
             case .Up: scrollToFinalView()
-            
+                
             }
             
         } else {
@@ -403,7 +430,7 @@ extension StickyHeaderFoodViewController: InnerTableViewScrollDelegate {
             time = 0.25
         }
         
-       // headerViewHeightConstraint.constant = topViewInitialHeight
+        headerViewHeightConstraint.constant = topViewCurrentHeight
         
         UIView.animate(withDuration: TimeInterval(time), animations: {
             self.view.layoutIfNeeded()
@@ -431,3 +458,155 @@ extension StickyHeaderFoodViewController: InnerTableViewScrollDelegate {
         })
     }
 }
+
+extension StickyHeaderFoodViewController: UITableViewDataSource, UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return foodpages.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return foodpages[section].list.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: FoodTableViewCell.identifier, for: indexPath) as! FoodTableViewCell
+        cell.FoodImage.sd_setImage(with: URL(string: "\(foodpages[indexPath.section].list[indexPath.row].imageURL)"))
+        cell.FoodName.text = "\(foodpages[indexPath.section].list[indexPath.row].name)"
+        cell.FoodDescription.text = foodpages[indexPath.section].list[indexPath.row].requestDescription
+        cell.PriceButton.setTitle("\(foodpages[indexPath.section].list[indexPath.row].price) р", for: .normal)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return foodpages[section].name
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 40))
+        
+        let lbl = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width - 15, height: 40))
+        lbl.font = UIFont.systemFont(ofSize: 25)
+        lbl.text = foodpages[section].name
+        view.addSubview(lbl)
+        return view
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if foodpages[indexPath.section].name == "Категории" {
+            switch indexPath.row {
+                
+            case 0:
+                presenter.scrollTable(section: 5)
+                
+            case 1:
+                presenter.scrollTable(section: 2)
+                
+            case 2:
+                presenter.scrollTable(section: 3)
+                
+            case 3:
+                presenter.scrollTable(section: 4)
+                
+            default:
+                break
+            }
+        }
+        
+        if foodpages[indexPath.section].name != "Категории" {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "FoodDetailViewController") as? FoodDetailViewController {
+                vc.imageURL = foodpages[indexPath.section].list[indexPath.row].imageURL
+                vc.name = foodpages[indexPath.section].list[indexPath.row].name
+                vc.price = foodpages[indexPath.section].list[indexPath.row].price
+                vc.carbs = foodpages[indexPath.section].list[indexPath.row].carbs
+                vc.calories = foodpages[indexPath.section].list[indexPath.row].calories
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+    }
+}
+
+extension StickyHeaderFoodViewController: FoodPresentDelegate {
+    func presentAppetizers(food: [Request]) {
+        DispatchQueue.main.async {
+            self.foodpages.append(FoodPage(id: 1, name: "Закуски", list: food))
+            self.tableView.reloadData()
+        }
+    }
+    
+    func presentHamburgers(hamburgers: [Request]) {
+        DispatchQueue.main.async {
+            self.foodpages.append(FoodPage(id: 2, name: "Бургеры", list: hamburgers))
+            self.tableView.reloadData()
+        }
+    }
+    
+    func presentCola(cola: [Request]) {
+        DispatchQueue.main.async {
+            self.foodpages.append(FoodPage(id: 3, name: "Кола", list: cola))
+            self.tableView.reloadData()
+        }
+    }
+    
+    func presentPizzas(pizzas: [Request]) {
+        DispatchQueue.main.async {
+            self.foodpages.append(FoodPage(id: 4, name: "Пицца", list: pizzas))
+            self.tableView.reloadData()
+        }
+    }
+}
+
+extension StickyHeaderFoodViewController {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        let delta = scrollView.contentOffset.y - oldContentOffset.y
+        
+        let topViewCurrentHeightConst = innerTableViewScrollDelegate?.currentHeaderHeight
+        
+        if let topViewUnwrappedHeight = topViewCurrentHeightConst {
+            
+            if delta > 0,
+               topViewUnwrappedHeight > topViewHeightConstraintRange.lowerBound,
+               scrollView.contentOffset.y > 0 {
+                
+                dragDirection = .Up
+                innerTableViewScrollDelegate?.innerTableViewDidScroll(withDistance: delta)
+                scrollView.contentOffset.y -= delta
+            }
+            
+            if delta < 0,
+               
+                scrollView.contentOffset.y < 0 {
+                
+                dragDirection = .Down
+                innerTableViewScrollDelegate?.innerTableViewDidScroll(withDistance: delta)
+                scrollView.contentOffset.y -= delta
+            }
+        }
+        
+        oldContentOffset = scrollView.contentOffset
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
+        if scrollView.contentOffset.y <= 0 {
+            
+            innerTableViewScrollDelegate?.innerTableViewScrollEnded(withScrollDirection: dragDirection)
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        if decelerate == false && scrollView.contentOffset.y <= 0 {
+            
+            innerTableViewScrollDelegate?.innerTableViewScrollEnded(withScrollDirection: dragDirection)
+        }
+    }
+}
+
+

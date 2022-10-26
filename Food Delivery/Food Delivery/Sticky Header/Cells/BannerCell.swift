@@ -12,5 +12,6 @@ class BannerCell: UICollectionViewCell {
     static let identifier = "BannerCell"
     
     @IBOutlet weak var BannerImage: UIImageView!
+    @IBOutlet weak var BannerText: UILabel!
     
 }
