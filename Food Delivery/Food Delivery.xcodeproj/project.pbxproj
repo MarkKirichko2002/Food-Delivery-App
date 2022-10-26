@@ -10,7 +10,6 @@
 		4E845F009A6846DFE539B9A0 /* Pods_Food_Delivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3235B04EC8A64BF4212C1AF1 /* Pods_Food_Delivery.framework */; };
 		82411C9128FC194C00DD60DB /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82411C9028FC194C00DD60DB /* FoodTableViewController.swift */; };
 		82411C9628FC816B00DD60DB /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82411C9528FC816B00DD60DB /* MenuController.swift */; };
-		8264A1312901CCDB004D4C98 /* TabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8264A1302901CCDB004D4C98 /* TabBarCollectionViewCell.xib */; };
 		82826F9928F86893008798D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826F9828F86893008798D5 /* AppDelegate.swift */; };
 		82826F9B28F86893008798D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826F9A28F86893008798D5 /* SceneDelegate.swift */; };
 		82826FA028F86893008798D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82826F9E28F86893008798D5 /* Main.storyboard */; };
@@ -29,6 +28,8 @@
 		82826FF428F8AF6F008798D5 /* FoodPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82826FF328F8AF6F008798D5 /* FoodPresenter.swift */; };
 		8282700428F9C856008798D5 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8282700328F9C856008798D5 /* AnimationClass.swift */; };
 		8282700628F9C86F008798D5 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8282700528F9C86F008798D5 /* SplashScreenViewController.swift */; };
+		82882B0D2909978E00EABCDD /* TabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82882B0C2909978E00EABCDD /* TabBarCollectionViewCell.xib */; };
+		82882B0F290997EE00EABCDD /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82882B0E290997EE00EABCDD /* BannerCell.xib */; };
 		829C8D1228F9E07100C3A004 /* RoundedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829C8D1128F9E07100C3A004 /* RoundedImageView.swift */; };
 		829C8D1928F9EC9900C3A004 /* FoodNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829C8D1828F9EC9900C3A004 /* FoodNavigationController.swift */; };
 		829C8D1B28F9EF5700C3A004 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 829C8D1A28F9EF5700C3A004 /* FoodDetailViewController.swift */; };
@@ -38,7 +39,6 @@
 		82D8BDE428FDC2DB00FED22F /* FoodTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82D8BDE228FDC2DB00FED22F /* FoodTableViewCell.xib */; };
 		82D8BDED28FDC82600FED22F /* StickyHeaderFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D8BDEB28FDC82600FED22F /* StickyHeaderFoodViewController.swift */; };
 		82D8BDF128FDC8A000FED22F /* FoodContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82D8BDEF28FDC8A000FED22F /* FoodContentViewController.swift */; };
-		82D8BDF428FDE22C00FED22F /* FoodContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82D8BDF328FDE22C00FED22F /* FoodContentViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +46,6 @@
 		3BF7DE7C090D52726354FE7F /* Pods-Food Delivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Delivery.debug.xcconfig"; path = "Target Support Files/Pods-Food Delivery/Pods-Food Delivery.debug.xcconfig"; sourceTree = "<group>"; };
 		82411C9028FC194C00DD60DB /* FoodTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
 		82411C9528FC816B00DD60DB /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
-		8264A1302901CCDB004D4C98 /* TabBarCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TabBarCollectionViewCell.xib; path = "../../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/TabBarCollectionViewCell.xib"; sourceTree = "<group>"; };
 		82826F9528F86893008798D5 /* Food Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Delivery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82826F9828F86893008798D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		82826F9A28F86893008798D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,17 +66,17 @@
 		82826FF328F8AF6F008798D5 /* FoodPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPresenter.swift; sourceTree = "<group>"; };
 		8282700328F9C856008798D5 /* AnimationClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
 		8282700528F9C86F008798D5 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		82882B0C2909978E00EABCDD /* TabBarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarCollectionViewCell.xib; sourceTree = "<group>"; };
+		82882B0E290997EE00EABCDD /* BannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCell.xib; sourceTree = "<group>"; };
 		829C8D1128F9E07100C3A004 /* RoundedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedImageView.swift; sourceTree = "<group>"; };
 		829C8D1828F9EC9900C3A004 /* FoodNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodNavigationController.swift; sourceTree = "<group>"; };
 		829C8D1A28F9EF5700C3A004 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
-		82BB599029008B15005582EF /* TabBarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarCollectionViewCell.xib; sourceTree = "<group>"; };
 		82BB599129008C86005582EF /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		82D8BDDD28FDC29A00FED22F /* TabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCollectionViewCell.swift; sourceTree = "<group>"; };
 		82D8BDE128FDC2DB00FED22F /* FoodTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
 		82D8BDE228FDC2DB00FED22F /* FoodTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodTableViewCell.xib; sourceTree = "<group>"; };
 		82D8BDEB28FDC82600FED22F /* StickyHeaderFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderFoodViewController.swift; sourceTree = "<group>"; };
 		82D8BDEF28FDC8A000FED22F /* FoodContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodContentViewController.swift; sourceTree = "<group>"; };
-		82D8BDF328FDE22C00FED22F /* FoodContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FoodContentViewController.xib; sourceTree = "<group>"; };
 		F2D7E1DC9B065D577CB2DCE5 /* Pods-Food Delivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Food Delivery.release.xcconfig"; path = "Target Support Files/Pods-Food Delivery/Pods-Food Delivery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -285,10 +284,11 @@
 			isa = PBXGroup;
 			children = (
 				82D8BDDD28FDC29A00FED22F /* TabBarCollectionViewCell.swift */,
-				82BB599029008B15005582EF /* TabBarCollectionViewCell.xib */,
+				82882B0C2909978E00EABCDD /* TabBarCollectionViewCell.xib */,
 				82D8BDE128FDC2DB00FED22F /* FoodTableViewCell.swift */,
 				82D8BDE228FDC2DB00FED22F /* FoodTableViewCell.xib */,
 				82BB599129008C86005582EF /* BannerCell.swift */,
+				82882B0E290997EE00EABCDD /* BannerCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -298,8 +298,6 @@
 			children = (
 				82D8BDEB28FDC82600FED22F /* StickyHeaderFoodViewController.swift */,
 				82D8BDEF28FDC8A000FED22F /* FoodContentViewController.swift */,
-				82D8BDF328FDE22C00FED22F /* FoodContentViewController.xib */,
-				8264A1302901CCDB004D4C98 /* TabBarCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -372,15 +370,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82882B0D2909978E00EABCDD /* TabBarCollectionViewCell.xib in Resources */,
 				82826FE428F8A1C1008798D5 /* FoodCollectionViewCell.xib in Resources */,
-				82D8BDF428FDE22C00FED22F /* FoodContentViewController.xib in Resources */,
 				82826FA528F86896008798D5 /* LaunchScreen.storyboard in Resources */,
 				82826FE828F8A1CD008798D5 /* CategoriesCollectionViewCell.xib in Resources */,
+				82882B0F290997EE00EABCDD /* BannerCell.xib in Resources */,
 				82826FA228F86896008798D5 /* Assets.xcassets in Resources */,
 				82D8BDE428FDC2DB00FED22F /* FoodTableViewCell.xib in Resources */,
 				82826FF228F8A2BD008798D5 /* BannerCollectionViewCell.xib in Resources */,
 				82826FA028F86893008798D5 /* Main.storyboard in Resources */,
-				8264A1312901CCDB004D4C98 /* TabBarCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
